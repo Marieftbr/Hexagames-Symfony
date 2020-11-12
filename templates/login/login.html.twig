@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace Client - HexaGames{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href=" {{ asset('css/login.css') }} ">
+{% endblock %}
+{% block body %}
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col mx-auto border-right">
+
+                <div id="espaceClient">
+
+                    <p>Espace Client</p>
+
+                </div>
+
+                <form class="border-secondary" id="form1">
+
+                    <div class="form-group col-md-12 ">
+                        <input type="email" class="form-control btnMail" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Adresse Mail" required>
+                    </div>
+
+                    <div class="form-group col-md-12" id="show_hide_password">
+                        <input type="password" class="form-control btnMdp" id="exampleInputPassword1" placeholder="Mot de passe" required>
+                        <img class="hideEyes" src="./images/hide-eyes.svg" alt="Show eyes" onclick="cacherMontrerBtn()">
+
+
+                    </div>
+
+
+
+                    <div class="form-row col-md-12">
+                        <button type="submit" class="btn bg-warning meConnecter mx-auto">Me connecter</button>
+                    </div>
+
+                    <div class="motdepasse">
+                        <a href="#">J'ai oublié mon mot de passe</a>
+                        <a href="../inscription/inscription.html.twig"></a>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="col mx-auto">
+
+                <div id="espaceClient">
+
+                    <p></p><br>
+
+                </div>
+
+                <form>
+                    <div class="row">
+                        <p class="pcompte mx-auto "> Pas encore de compte ?</p>
+                    </div>
+
+                    <div class="row col-md-12 mx-auto ">
+                        <img class="imgcrcmpt" src="./images/test_splash_connexion.png" alt="Mon compte">
+                    </div>
+
+                    <div class="form-row col-md-12 btrnCree">
+                        <button type="submit" class="btn bg-warning mx-auto font-weight-bold">Créer mon compte</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+    
+
+    
+   

@@ -1,0 +1,93 @@
+
+body {
+    height: 100px;
+    background-color: #efdfff !important ;
+}
+
+#container{ 
+    height:200px;
+}
+
+.motdepasse {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btnMail {
+    background-image:url(../photos/user.svg);
+    background-position:left;
+    background-repeat:no-repeat;
+    background-size : 20px;
+    background-position: 2%;
+}
+
+.btnMdp{
+    background-image:url(../photos/motdepasse.svg);
+    background-position:left;
+    background-repeat:no-repeat;
+    background-size : 20px;
+    background-position: 2%;
+    position: relative;
+    
+    
+}
+
+.hideEyes {
+    position: relative;
+    width: 20px;
+    bottom: 32px; left: 480px;
+}
+
+#espaceClient {
+    color : black;
+    font-size: 2rem;
+   margin-bottom: 20px;
+   margin-top: 20px;
+    text-align: center;
+}
+
+.form-row .meConnecter {
+    font-weight: bold;
+}
+
+input[type=email] {
+    
+    padding-left: 40px;
+    
+  }
+
+input[type=password] {
+    
+    padding-left: 40px;
+    
+  }
+
+  input[type=text] {
+    
+    padding-left: 40px;
+    
+  }
+
+
+.imgcrcmpt{
+    padding-bottom: 15px;
+    height: auto;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#form1{
+    margin-top: 70px;
+}
+
+#form1 div {
+    margin-top: 40px;
+}
+
+.container {
+
+    margin-top: 200px;
+
+}
+

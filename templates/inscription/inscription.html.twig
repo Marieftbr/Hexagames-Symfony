@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription - HexaGames{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href=" {{ asset('css/inscription.css') }} ">
+{% endblock %}
+
+{% block body %}
+    <main>
+
+        <div id="creecompte"> Créer un compte HexaGames</div>
+
+        <hr>
+        <br>
+
+        <form class="needs-validation" novalidate>
+
+            <div class="form-row col-12">
+                <div class="col-md-4 mb-3 mx-auto">
+                    <label for="validationCustom01">Nom : </label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
+                    <div class="valid-feedback">
+                        Veuillez saisir votre Nom.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row col-12">
+                <div class="col-md-4 mb-3 mx-auto">
+                    <label for="validationCustom02">Prénom :</label>
+                    <input type="text" class="form-control" id="validationCustom02" placeholder="" value="" required>
+                    <div class="valid-feedback">
+                        Veuillez saisir votre Prénom.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row col-12">
+                <div class="col-md-4 mb-3 mx-auto">
+                    <label for="validationCustom02">Mail :</label>
+                    <input type="email" class="form-control" id="validationCustom02" placeholder="" value="" required>
+                    <div class="valid-feedback">
+                        Veuillez saisir votre Mail.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row col-12">
+                <div class="col-md-4 mb-3 mx-auto">
+                    <label for="validationCustomUsername">Pseudo :</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend">@</span>
+                        </div>
+                        <input type="text" class="form-control" id="validationCustomUsername" placeholder="" aria-describedby="inputGroupPrepend" required>
+                        <div class="invalid-feedback">
+                            Veuillez saisir un Psuedo.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-row col-12">
+                <div class="col-md-4 mb-3 mx-auto">
+                    <label for="validationCustom03">Ville :</label>
+                    <input type="text" class="form-control" id="validationCustom03" placeholder="" required>
+                    <div class="invalid-feedback">
+                        Veuillez saisir votre Ville.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row col-12">
+                <div class="col-md-4 mb-3 mx-auto">
+                    <label for="validationCustom05">Code postal :</label>
+                    <input type="text" class="form-control" id="validationCustom05" placeholder="" required>
+                    <div class="invalid-feedback">
+                        Veuillez saisir votre Code Postal.
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group form-row ">
+                <div class="form-check mx-auto mb-3">
+                    <input class="form-check-input " type="checkbox" value="" id="invalidCheck" required>
+                    <label class="form-check-label mx-auto gcu" for="invalidCheck">
+                        En créant un compte vous devez acceptez les CGU du site.
+                    </label>
+
+                    <div class="invalid-feedback">
+                        Vous devez lire et accepter les conditions générales
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <button class="btn bg-warning mx-auto" type="submit">Valider mon inscription</button>
+            </div>
+        </form>
+
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+                'use strict';
+                window.addEventListener('load', function() {
+                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    var forms = document.getElementsByClassName('needs-validation');
+                    // Loop over them and prevent submission
+                    var validation = Array.prototype.filter.call(forms, function(form) {
+                        form.addEventListener('submit', function(event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                }, false);
+            })();
+        </script>
+
+    </main>
+{% endblock %}
+
+

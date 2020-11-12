@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma ludothèque{% endblock %}
+{% block stylesheets %}
+  <link rel="stylesheet" type="text/css" href=" {{ asset('css/mes-hexapotes.css') }} ">
+{% endblock %}
+{% block body %}
+  <div class="container">
+    <!-- entête (titre, rechercher) -->
+    <header class="row">
+      <div class="col-md-6">
+        <h1>Mes hexapotes</h1>
+      </div>
+      <div class="col-md-6">
+        <label for="site-search">Search:</label>
+        <input
+                type="search"
+                id="site-search"
+                name="q"
+                aria-label="Search through site content"
+        />
+
+        <button>Search</button>
+      </div>
+    </header>
+
+    <!--Filtres, et carte des hexapotes-->
+    <section>
+      <button onclick="toggle()" class="form-open">Filtres</button>
+      <form action="GET" id="form-toggle">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Villes</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>--Choisir--</option>
+            <option>Paris</option>
+            <option>Marseille</option>
+            <option>Toulouse</option>
+            <option>Bordeaux</option>
+            <option>Agen</option>
+          </select>
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <div class="d-flex wrapper">
+        <div class="card col-md-4" style="width: 18rem">
+          <img src="{{ asset('img/19.jpg') }}" class=" rounded card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Pseudo</h5>
+            <a href="#" class="btn btn-primary">Voir profil</a>
+            <a href="#" class="btn btn-primary">Envoyer un message</a>
+          </div>
+        </div>
+
+        <div class="card col-md-4" style="width: 18rem">
+          <img src="{{ asset('img/21.jpg') }}" class="rounded card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Pseudo</h5>
+            <a href="#" class="btn btn-primary">Voir profil</a>
+            <a href="#" class="btn btn-primary">Envoyer un message</a>
+          </div>
+        </div>
+
+        <div class="card col-md-4" style="width: 18rem">
+          <img src="{{ asset('img/3.jpg') }}" class="rounded card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Pseudo</h5>
+            <a href="#" class="btn btn-primary">Voir profil</a>
+            <a href="#" class="btn btn-primary">Envoyer un message</a>
+          </div>
+        </div>
+
+        <div class="card col-md-4" style="width: 18rem">
+          <img src="{{ asset('img/54.jpg') }}" class="rounded card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Pseudo</h5>
+            <a href="#" class="btn btn-primary">Voir profil</a>
+            <a href="#" class="btn btn-primary">Envoyer un message</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}
+
+
+{% block javascripts %}
+  <script src="{{ asset('js/mes-hexapotes.js') }}"></script>
+{% endblock %}
+

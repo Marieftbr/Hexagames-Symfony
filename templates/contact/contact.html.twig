@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact - Hexagames{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href=" {{ asset('css/contact.css') }} ">
+{% endblock %}
+
+{% block body %}
+    <main>
+
+        <div id="nouscontactez"> Nous contactez</div>
+
+        <hr>
+        <br>
+
+        <form class="needs-validation" novalidate>
+
+            <div class="form-row col-12">
+                <div class="col-md-4 mb-3 mx-auto">
+                    <label for="validationCustom01">Nom : </label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
+                    <div class="valid-feedback">
+                        Veuillez saisir votre Nom.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row col-12">
+                <div class="col-md-4 mb-3 mx-auto">
+                    <label for="validationCustom02">Prénom :</label>
+                    <input type="text" class="form-control" id="validationCustom02" placeholder="" value="" required>
+                    <div class="valid-feedback">
+                        Veuillez saisir votre Prénom.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row col-12">
+                <div class="col-md-4 mb-3 mx-auto">
+                    <label for="validationCustom02">Mail :</label>
+                    <input type="email" class="form-control" id="validationCustom02" placeholder="" value="" required>
+                    <div class="valid-feedback">
+                        Veuillez saisir votre Mail.
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="form-row col-12">
+                <div class="col-md-4 mb-3 mx-auto">
+                    <label class="required" for="message">Votre message : </label>
+                    <textarea id="message" class="input" name="message" rows="7" cols="85" required></textarea>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <button class="btn bg-warning mx-auto" type="submit">Envoyer le message</button>
+            </div>
+
+        </form>
+
+
+    </main>
+{% endblock %}

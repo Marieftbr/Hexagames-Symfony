@@ -1,0 +1,16 @@
+#overlay{
+    position: relative;
+    top:auto;
+    left:auto;
+    z-index:2;
+    display:none;
+    width:1000px;
+    height:500px;
+    border-style:solid;
+    border-color:#909090;
+    border-width:1px;
+    background-color:#ffffff;
+    top:150px;
+    left:450px;
+    background-image: black;
+}

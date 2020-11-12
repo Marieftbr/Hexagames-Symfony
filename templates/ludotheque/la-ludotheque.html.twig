@@ -1,0 +1,149 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ludothèque{% endblock %}
+{% block stylesheets %}
+  <link rel="stylesheet" type="text/css" href=" {{ asset('css/la-ludotheque.css') }} ">
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <h1>Nos jeux</h1>
+    <section>
+      <button onclick="toggle()" class="form-open">Filtres</button>
+      <form action="GET" id="form-toggle">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Types</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>--Choisir--</option>
+            <option>Jeux de plateau</option>
+            <option>Jeux de rôle</option>
+            <option>Jeux de carte</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Maison d'édition</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>--Choisir--</option>
+            <option>River Horse</option>
+            <option>Iello</option>
+            <option>Space Cowboys</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Nombre de joueurs</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>--Choisir--</option>
+            <option>2/3</option>
+            <option>3/4</option>
+            <option>4/5</option>
+            <option>5/6</option>
+            <option>6/7</option>
+            <option>7/8</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Age</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>--Choisir--</option>
+            <option>Enfant</option>
+            <option>Adolescent</option>
+            <option>Adulte</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Durée</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>--Choisir--</option>
+            <option>30min</option>
+            <option>1h</option>
+            <option>2h</option>
+            <option>3h</option>
+            <option>4h</option>
+            <option>5h</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Catégories</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>--Choisir--</option>
+            <option>Enquête</option>
+            <option>Stratégie</option>
+            <option>Deckbuilding</option>
+            <option>Historique</option>
+            <option>Fantastique</option>
+          </select>
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <div class="card mb-3" style="max-width: 540px">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="{{ asset('img/mysterium.jpg') }}" class="card-img" alt="..." />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a wider card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
+              <p class="card-text">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </p>
+              <button>Voir la fiche du jeu</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3" style="max-width: 540px">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="{{ asset('img/mysterium.jpg') }}" class="card-img" alt="..." />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a wider card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
+              <p class="card-text">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </p>
+              <button>Voir la fiche du jeu</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3" style="max-width: 540px">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="{{ asset('img/mysterium.jpg') }}" class="card-img" alt="..." />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a wider card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
+              <p class="card-text">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </p>
+              <button>Voir la fiche du jeu</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}
+{% block javascripts %}
+  <script src="{{ asset('js/la-ludotheque.js') }}"></script>
+{% endblock %}
+

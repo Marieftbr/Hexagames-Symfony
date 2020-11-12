@@ -1,0 +1,15 @@
+body {
+    height: 100px;
+    background-color: #efdfff !important ;
+}
+#creecompte {
+    color : black;
+    font-size: 2rem;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.gcu {
+    color:red;
+}

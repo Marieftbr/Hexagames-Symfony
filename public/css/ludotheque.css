@@ -1,0 +1,49 @@
+
+/************* Aside **************/
+
+.alignement img {
+    width: 40px;
+}
+
+
+.imgjr {
+    width: 80%;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+
+.aside {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/************* Section **************/
+
+section {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+section h1{
+    text-align: center;
+    font-size: 4rem;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.ludo img {
+    width: 90%;
+}
+
+h5 {
+    text-align: center;
+}
