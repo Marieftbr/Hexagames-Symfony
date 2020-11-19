@@ -10,9 +10,12 @@
     <h1>Nos jeux</h1>
     <section>
       <button onclick="toggle()" class="form-open">Filtres</button>
-      {{ form_start(ludo_form) }}
-      {{ form_widget(ludo_form) }}
-      {{ form_end(ludo_form) }}
+      <div id="form-toggle">
+        {{ form_start(ludo_form) }}
+        {{ form_widget(ludo_form) }}
+        {{ form_end(ludo_form) }}
+      </div>
+
     </section>
 
     <section>

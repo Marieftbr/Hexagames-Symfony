@@ -14,56 +14,62 @@ class LudoType extends AbstractType
         $builder
             ->add('types', ChoiceType::class, [
                 'choices' => [
-                    'jeux de plateaux',
-                    'jeux de rôle',
-                    'jeux de carte'
+                    'Type de jeux' => true,
+                    'jeux de plateaux' => true,
+                    'jeux de rôle' => true,
+                    'jeux de carte' => true
                 ]
             ])
             ->add('editor', ChoiceType::class, [
                 'choices' => [
-                    'River Horse',
-                    'Iello',
-                    'SpaceCowboys'
+                    'Maison d\'édition' => true,
+                    'River Horse' => true,
+                    'Iello' => true,
+                    'SpaceCowboys' => true
 
                 ]
             ])
             ->add('playerNumber', ChoiceType::class, [
                 'choices' => [
-                    '2/3',
-                    '3/4',
-                    '4/5',
-                    '5/6',
-                    '6/7',
-                    '7/8'
+                    'Nombre de joueur' => true,
+                    '2/3' => true,
+                    '3/4' => true,
+                    '4/5' => true,
+                    '5/6' => true,
+                    '6/7' => true,
+                    '7/8' => true
                 ]
             ])
             ->add('age', ChoiceType::class, [
                 'choices' => [
-                    'Enfant',
-                    'Adolescent',
-                    'Adulte'
+                    'Âge' => true,
+                    'Enfant' => true,
+                    'Adolescent' => true,
+                    'Adulte' => true
                 ]
             ])
             ->add('duration', ChoiceType::class, [
                 'choices' => [
-                    '30min',
-                    '1h',
-                    '1h30',
-                    '2h',
-                    '3h',
-                    '4h',
-                    '5h',
-                    '6h',
-                    '7h'
+                    'Durée' => true,
+                    '30min' => true,
+                    '1h' => true,
+                    '1h30' => true,
+                    '2h' => true,
+                    '3h' => true,
+                    '4h' => true,
+                    '5h' => true,
+                    '6h' => true,
+                    '7h' => true
                 ]
             ])
             ->add('category', ChoiceType::class, [
                 'choices' => [
-                    'Enquêtes',
-                    'Stratégies',
-                    'DeckBuilding',
-                    'Historique',
-                    'Fantastique'
+                    'Catégories' => true,
+                    'Enquêtes' => true,
+                    'Stratégies' => true,
+                    'DeckBuilding' => true,
+                    'Historique' => true,
+                    'Fantastique' => true
                 ]
             ])
         ;
