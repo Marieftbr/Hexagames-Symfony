@@ -10,9 +10,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5155dcc8-92eb-4b9a-bd84-ba0f470e3605" name="Default Changelist" comment="Formulaire ludothèque sans css fini">
+    <list default="true" id="5155dcc8-92eb-4b9a-bd84-ba0f470e3605" name="Default Changelist" comment="Formulaire hexapotes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MyHexapoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MyHexapoteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contact/contact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact/contact.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ludotheque/la-ludotheque.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ludotheque/la-ludotheque.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/my-hexapotes/mes-hexapotes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/my-hexapotes/mes-hexapotes.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +172,7 @@
       <workItem from="1605187017360" duration="14000" />
       <workItem from="1605188242373" duration="10667000" />
       <workItem from="1605707986027" duration="5428000" />
-      <workItem from="1605780278366" duration="8354000" />
+      <workItem from="1605780278366" duration="8748000" />
     </task>
     <task id="LOCAL-00001" summary="Move to symfony">
       <created>1605198144879</created>
@@ -221,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605795175369</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Formulaire hexapotes">
+      <created>1605796993187</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1605796993187</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,7 +255,8 @@
     <MESSAGE value="Dashboard Elliot" />
     <MESSAGE value="Formulaire ludothèque" />
     <MESSAGE value="Formulaire ludothèque sans css fini" />
-    <option name="LAST_COMMIT_MESSAGE" value="Formulaire ludothèque sans css fini" />
+    <MESSAGE value="Formulaire hexapotes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Formulaire hexapotes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="450" y="83" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605194957835">
@@ -277,10 +287,10 @@
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605716805659" />
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1605197832709" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1605795183754">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1605796998543">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605795183754" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605796998543" />
     <state x="478" y="11" width="579" height="801" key="find.popup" timestamp="1605194121608">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
