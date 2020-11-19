@@ -27,19 +27,12 @@
     <!--Filtres, et carte des hexapotes-->
     <section>
       <button onclick="toggle()" class="form-open">Filtres</button>
-      <form action="GET" id="form-toggle">
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Villes</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>--Choisir--</option>
-            <option>Paris</option>
-            <option>Marseille</option>
-            <option>Toulouse</option>
-            <option>Bordeaux</option>
-            <option>Agen</option>
-          </select>
-        </div>
-      </form>
+      <div id="form-toggle">
+        {{ form_start(my_hexapotes_form) }}
+        {{ form_widget(my_hexapotes_form) }}
+        {{ form_end(my_hexapotes_form) }}
+      </div>
+
     </section>
 
     <section>
