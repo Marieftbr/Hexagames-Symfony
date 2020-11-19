@@ -17,31 +17,9 @@
 
                 </div>
 
-                <form class="border-secondary" id="form1">
-
-                    <div class="form-group col-md-12 ">
-                        <input type="email" class="form-control btnMail" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Adresse Mail" required>
-                    </div>
-
-                    <div class="form-group col-md-12" id="show_hide_password">
-                        <input type="password" class="form-control btnMdp" id="exampleInputPassword1" placeholder="Mot de passe" required>
-                        <img class="hideEyes" src="./images/hide-eyes.svg" alt="Show eyes" onclick="cacherMontrerBtn()">
-
-
-                    </div>
-
-
-
-                    <div class="form-row col-md-12">
-                        <button type="submit" class="btn bg-warning meConnecter mx-auto">Me connecter</button>
-                    </div>
-
-                    <div class="motdepasse">
-                        <a href="#">J'ai oublié mon mot de passe</a>
-                        <a href="../inscription/inscription.html.twig"></a>
-                    </div>
-
-                </form>
+              {{ form_start(login_form) }}
+              {{ form_widget(login_form) }}
+              {{ form_end(login_form) }}
 
             </div>
 
