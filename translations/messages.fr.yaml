@@ -1,0 +1,8 @@
+
+ludo:
+  types: {label: Types}
+  editor: {label: Editeur}
+  playerNumber: {label: Nombre de joueurs}
+  age: {label: Âge}
+  duration: {label: Durée}
+  category: {label: Catégories}

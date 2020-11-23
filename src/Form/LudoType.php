@@ -12,12 +12,13 @@ class LudoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->setMethod('GET')
             ->add('types', ChoiceType::class, [
                 'choices' => [
-                    'Type de jeux' => true,
-                    'jeux de plateaux' => true,
-                    'jeux de rôle' => true,
-                    'jeux de carte' => true
+                    'Type de jeux' => null,
+                    'jeux de plateaux' => 1,
+                    'jeux de rôle' => 2,
+                    'jeux de carte' => 3
                 ]
             ])
             ->add('editor', ChoiceType::class, [
@@ -78,7 +79,7 @@ class LudoType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'label_format' => 'ludo.%name%.label',
         ]);
     }
 }
