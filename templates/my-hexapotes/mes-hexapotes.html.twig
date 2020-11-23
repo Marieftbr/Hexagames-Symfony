@@ -26,7 +26,7 @@
 
     <!--Filtres, et carte des hexapotes-->
     <section>
-      <button onclick="toggle()" class="form-open">Filtres</button>
+      <button class="form-open">Filtres</button>
       <div id="form-toggle">
         {{ form_start(my_hexapotes_form) }}
         {{ form_widget(my_hexapotes_form) }}
@@ -80,6 +80,6 @@
 
 
 {% block javascripts %}
-  <script src="{{ asset('js/mes-hexapotes.js') }}"></script>
+  <script src="{{ asset('js/toggle.js') }}"></script>
 {% endblock %}
 

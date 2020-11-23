@@ -9,7 +9,7 @@
   <div class="container">
     <h1>Nos jeux</h1>
     <section>
-      <button onclick="toggle()" class="form-open">Filtres</button>
+      <button class="form-open">Filtres</button>
       <div id="form-toggle">
         {{ form_start(ludo_form) }}
         {{ form_widget(ludo_form) }}
@@ -87,6 +87,6 @@
   </div>
 {% endblock %}
 {% block javascripts %}
-  <script src="{{ asset('js/la-ludotheque.js') }}"></script>
+  <script src="{{ asset('js/toggle.js') }}"></script>
 {% endblock %}
 
