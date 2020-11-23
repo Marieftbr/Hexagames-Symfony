@@ -62,6 +62,11 @@ class Game
      */
     private $editor;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $types;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -171,6 +176,18 @@ class Game
     public function setEditor(?Editor $editor): self
     {
         $this->editor = $editor;
+
+        return $this;
+    }
+
+    public function getTypes(): ?int
+    {
+        return $this->types;
+    }
+
+    public function setTypes(int $types): self
+    {
+        $this->types = $types;
 
         return $this;
     }
