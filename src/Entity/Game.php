@@ -35,10 +35,15 @@ class Game
     /**
      * @ORM\Column(type="integer")
      */
-    private $playerNumber;
+    private $playerNumberMin;
 
     /**
-     * @ORM\Column(type="time", nullable=true)
+     * @ORM\Column(type="integer")
+     */
+    private $playerNumberMax;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $duration;
 
@@ -50,7 +55,7 @@ class Game
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $age;
+    private $ageMin;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -66,6 +71,13 @@ class Game
      * @ORM\Column(type="integer")
      */
     private $types;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $category;
+
+
 
     public function getId(): ?int
     {
@@ -108,24 +120,24 @@ class Game
         return $this;
     }
 
-    public function getPlayerNumber(): ?int
+    public function getPlayerNumberMax(): ?int
     {
-        return $this->playerNumber;
+        return $this->playerNumberMax;
     }
 
-    public function setPlayerNumber(int $playerNumber): self
+    public function setPlayerNumberMax(int $playerNumberMax): self
     {
-        $this->playerNumber = $playerNumber;
+        $this->playerNumberMax = $playerNumberMax;
 
         return $this;
     }
 
-    public function getDuration(): ?\DateTimeInterface
+    public function getDuration(): ?int
     {
         return $this->duration;
     }
 
-    public function setDuration(?\DateTimeInterface $duration): self
+    public function setDuration(?int $duration): self
     {
         $this->duration = $duration;
 
@@ -144,14 +156,14 @@ class Game
         return $this;
     }
 
-    public function getAge(): ?int
+    public function getAgeMin(): ?int
     {
-        return $this->age;
+        return $this->ageMin;
     }
 
-    public function setAge(?int $age): self
+    public function setAgeMin(?int $ageMin): self
     {
-        $this->age = $age;
+        $this->ageMin = $ageMin;
 
         return $this;
     }
@@ -188,6 +200,30 @@ class Game
     public function setTypes(int $types): self
     {
         $this->types = $types;
+
+        return $this;
+    }
+
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+    public function setCategory(string $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getPlayerNumberMin(): ?int
+    {
+        return $this->playerNumberMin;
+    }
+
+    public function setPlayerNumberMin(int $playerNumberMin): self
+    {
+        $this->playerNumberMin = $playerNumberMin;
 
         return $this;
     }
