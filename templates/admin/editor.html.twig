@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration - Editeur{% endblock %}
+
+{% block body %}
+    {{ form_start(editor_form) }}
+    {{ form_widget(editor_form) }}
+    <input type="submit" value="Enregistrer">
+    {{ form_end(editor_form) }}
+{% endblock %}
