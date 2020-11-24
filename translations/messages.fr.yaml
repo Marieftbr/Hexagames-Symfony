@@ -6,3 +6,17 @@ ludo:
   age: {label: Âge}
   duration: {label: Durée}
   category: {label: Catégories}
+
+
+game:
+  name: {label: Nom}
+  synopsis: {label: Synopsis}
+  isbn: {label: ISBN}
+  editor: {label: Editeur}
+  playerNumberMin: {label: Nombre de joueurs Minimum}
+  playerNumberMax: {label: Nombre de joueurs Maximum}
+  duration: {label: Durée}
+  category: {label: Catégories}
+  types: {label: Genre}
+  ageMin: {label: Âge Minimum}
+  photo: {label: Image}
