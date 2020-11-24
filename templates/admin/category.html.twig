@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration - Catégories{% endblock %}
+{% block body %}
+    {{ form_start(category_form) }}
+    {{ form_widget(category_form) }}
+    <input type="submit" value="Enregistrer">
+    {{ form_end(category_form) }}
+{% endblock %}
