@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -33,6 +35,51 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $firstname;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $lastname;
+
+
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $city;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Game::class, inversedBy="users")
+     */
+    private $my_games;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class)
+     */
+    private $my_hexapotes;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $pseudo;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $age;
+
+
+    public function __construct()
+    {
+        $this->my_games = new ArrayCollection();
+        $this->my_hexapotes = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -111,4 +158,117 @@ class User implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(string $firstname): self
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(string $lastname): self
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): self
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Game[]
+     */
+    public function getMyGames(): Collection
+    {
+        return $this->my_games;
+    }
+
+    public function addMyGame(Game $myGame): self
+    {
+        if (!$this->my_games->contains($myGame)) {
+            $this->my_games[] = $myGame;
+        }
+
+        return $this;
+    }
+
+    public function removeMyGame(Game $myGame): self
+    {
+        $this->my_games->removeElement($myGame);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|self[]
+     */
+    public function getMyHexapotes(): Collection
+    {
+        return $this->my_hexapotes;
+    }
+
+    public function addMyHexapote(self $myHexapote): self
+    {
+        if (!$this->my_hexapotes->contains($myHexapote)) {
+            $this->my_hexapotes[] = $myHexapote;
+        }
+
+        return $this;
+    }
+
+    public function removeMyHexapote(self $myHexapote): self
+    {
+        $this->my_hexapotes->removeElement($myHexapote);
+
+        return $this;
+    }
+
+    public function getPseudo(): ?string
+    {
+        return $this->pseudo;
+    }
+
+    public function setPseudo(string $pseudo): self
+    {
+        $this->pseudo = $pseudo;
+
+        return $this;
+    }
+
+    public function getAge(): ?\DateTimeInterface
+    {
+        return $this->age;
+    }
+
+    public function setAge(\DateTimeInterface $age): self
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+
+
 }

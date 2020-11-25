@@ -79,9 +79,15 @@ class Game
      */
     private $categories;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="my_games")
+     */
+    private $users;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
 
@@ -244,6 +250,33 @@ class Game
     public function removeCategory(Category $category): self
     {
         $this->categories->removeElement($category);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addMyGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removeMyGame($this);
+        }
 
         return $this;
     }
