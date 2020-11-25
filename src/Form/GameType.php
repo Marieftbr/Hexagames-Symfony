@@ -48,8 +48,9 @@ class GameType extends AbstractType
                     '7h' => 7 * 60
                 ]
             ])
-            ->add('category', EntityType::class, [
+            ->add('categories', EntityType::class, [
                 'placeholder' => 'Catégories',
+                'multiple' => true,
                 'class' => Category::class,
                 'choice_label' => 'name',
             ])
