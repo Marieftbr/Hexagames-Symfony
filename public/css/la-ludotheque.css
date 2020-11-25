@@ -53,3 +53,25 @@ nav {
   text-align: center;
 }
 
+.game-card {
+  position: relative;
+  /*padding-bottom: 75%;*/
+  width: 100%;
+}
+
+.game-card .card-body {
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*left: 0;*/
+  /*right: 0;*/
+  /*bottom: 0;*/
+}
+
+
+
+/*.game-card .card-text-main:before {*/
+/*  content: "...";*/
+/*  position: absolute;*/
+/*  bottom: 0;*/
+/*  right: 0;*/
+/*}*/

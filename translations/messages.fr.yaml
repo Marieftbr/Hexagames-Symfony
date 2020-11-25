@@ -2,8 +2,9 @@
 ludo:
   types: {label: Types}
   editor: {label: Editeur}
-  playerNumber: {label: Nombre de joueurs}
-  age: {label: Âge}
+  playerNumberMin: {label: Nombre de joueurs Minimum}
+  playerNumberMax: {label: Nombre de joueurs Maximum}
+  ageMin: {label: Âge Minimum}
   duration: {label: Durée}
   category: {label: Catégories}
 
