@@ -2,8 +2,12 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
+use App\Entity\Editor;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -21,57 +25,36 @@ class LudoType extends AbstractType
                     'jeux de carte' => 3
                 ]
             ])
-            ->add('editor', ChoiceType::class, [
-                'choices' => [
-                    'Maison d\'édition' => true,
-                    'River Horse' => true,
-                    'Iello' => true,
-                    'SpaceCowboys' => true
-
-                ]
+            ->add('editor', EntityType::class, [
+                'placeholder' => 'Editeur',
+                'class' => Editor::class,
+                'choice_label' => 'name',
             ])
-            ->add('playerNumber', ChoiceType::class, [
-                'choices' => [
-                    'Nombre de joueur' => true,
-                    '2/3' => true,
-                    '3/4' => true,
-                    '4/5' => true,
-                    '5/6' => true,
-                    '6/7' => true,
-                    '7/8' => true
-                ]
+            ->add('playerNumberMin', IntegerType::class, [
+                // 'placeholder' => 'Nombre de joueurs',
             ])
-            ->add('age', ChoiceType::class, [
-                'choices' => [
-                    'Âge' => true,
-                    'Enfant' => true,
-                    'Adolescent' => true,
-                    'Adulte' => true
-                ]
+            ->add('playerNumberMax', IntegerType::class, [
+                //'placeholder' => 'Nombre de joueurs',
             ])
+            ->add('ageMin', IntegerType::class)
             ->add('duration', ChoiceType::class, [
                 'choices' => [
-                    'Durée' => true,
-                    '30min' => true,
-                    '1h' => true,
-                    '1h30' => true,
-                    '2h' => true,
-                    '3h' => true,
-                    '4h' => true,
-                    '5h' => true,
-                    '6h' => true,
-                    '7h' => true
+                    'Durée' => null,
+                    '30min' => 30,
+                    '1h' => 60,
+                    '1h30' => 60 + 30,
+                    '2h' => 2 * 60,
+                    '3h' => 3 * 60,
+                    '4h' => 4 * 60,
+                    '5h' => 5 * 60,
+                    '6h' => 6 * 60,
+                    '7h' => 7 * 60
                 ]
             ])
-            ->add('category', ChoiceType::class, [
-                'choices' => [
-                    'Catégories' => true,
-                    'Enquêtes' => true,
-                    'Stratégies' => true,
-                    'DeckBuilding' => true,
-                    'Historique' => true,
-                    'Fantastique' => true
-                ]
+            ->add('category', EntityType::class, [
+                'placeholder' => 'Catégories',
+                'class' => Category::class,
+                'choice_label' => 'name',
             ])
         ;
     }
