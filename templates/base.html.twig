@@ -5,16 +5,85 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="stylesheet" type="text/css" href=" {{ asset('css/bootstrap.min.css') }} ">
         <link rel="stylesheet" type="text/css" href=" {{ asset('css/base.css') }} ">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" >
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Raleway:wght@800;900&display=swap">
         {% block stylesheets %}
         {% endblock %}
     </head>
     <body>
         {% block body %}
-            <h1>Hexagames</h1>
+            <header>
+                <nav class="row w-100 mx-0 justify-content-between d-none d-md-flex d-lg-flex d-xl-flex">
+                    <h1><a href="#" alt="Lien vers l'accueil du site">HEXAGAMES</a></h1>
+                    <ul class="alignement">
+                        <li>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle profil" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-user saute"></i>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <form class="px-4 py-3">
+                                        <div class="form-group">
+                                            <label for="exampleDropdownFormEmail1">Adresse email</label>
+                                            <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@exemple.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleDropdownFormPassword1">Mot de passe</label>
+                                            <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Mot de passe">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                                <label class="form-check-label" for="dropdownCheck">
+                                                    Se souvenir de moi
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-light">Se connecter</button>
+                                    </form>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Nouveau ? Deviens un Hexapote !</a>
+                                    <a class="dropdown-item" href="#">Mot de passe oublié ?</a>
+                                </div>
+                        </li>
+                        <li><a href="#" alt="Lien vers la ludothèque"><i class="fas fa-dice-d20 saute"></i></a></li>
+                        <li><a href="#" alt="Créer un événement avec des Hexapotes"><i class="fas fa-calendar-alt saute"></i></a></li>
+                        <li><a href="#" alt="Lien vers sa boîte de réception"><i class="fas fa-envelope saute"></i></a></li>
+                        <li><a href="#" alt="Nous contacter"><i class="fas fa-pencil-alt saute"></i></a></li>
+                        <li><a href="#" alt="Se déconnecter"><i class="fas fa-power-off saute"></i></a></li>
+                    </ul>
+                </nav>
+
+                <nav class="w-100 d-none d-xs-block d-sm-block d-md-none d-xl-none">
+                    <nav class="navbar navbar-light bg-light">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </nav>
+                    <div class="pos-f-t">
+                        <div class="collapse" id="navbarToggleExternalContent">
+                            <div class="bg-light p-2">
+                                <ul class="nav-responsive px-3">
+                                    <li><a href="#" alt="Lien vers l'accueil du site"><i class="fas fa-home"></i> Accueil</a></li>
+                                    <li><a href="#" alt="Lien vers la ludothèque"><i class="fas fa-dice-d20"></i> Ludothèque</a></li>
+                                    <li><a href="#" alt="Créer un événement avec des Hexapotes"><i class="fas fa-calendar-alt"></i> Sessions de jeu</a></li>
+                                    <li><a href="#" alt="Lien vers sa boîte de réception"><i class="fas fa-envelope"></i> Messagerie</a></li>
+                                    <li><a href="#" alt="Nous contacter"><i class="fas fa-pencil-alt"></i> Nous contacter</a></li>
+                                    <li><a href="#" alt="Lien vers son profil"><i class="fas fa-user saute"></i> Mon profil</a></li>
+                                    <li><a href="#" alt="Se déconnecter"><i class="fas fa-power-off"></i> Se déconnecter</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
         {% endblock %}
         <script src="{{ asset('js/jquery-3.5.1.slim.min.js ') }}"></script>
         <script src="{{ asset('js/popper.min.js ') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js ') }}"></script>
+        <script src="https://kit.fontawesome.com/7f37cf6bc8.js" crossorigin="anonymous"></script>
         {% block javascripts %}
 
         {% endblock %}
