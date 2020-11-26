@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,76 +12,183 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}
-            <header>
-                <nav class="row w-100 mx-0 justify-content-between d-none d-md-flex d-lg-flex d-xl-flex">
-                    <h1><a href="#" alt="Lien vers l'accueil du site">HEXAGAMES</a></h1>
-                    <ul class="alignement">
-                        <li>
-                            <div class="dropdown">
-                                <a class="dropdown-toggle profil" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-user saute"></i>
-                                </a>
-                                <div class="dropdown-menu">
-                                    <form class="px-4 py-3">
-                                        <div class="form-group">
-                                            <label for="exampleDropdownFormEmail1">Adresse email</label>
-                                            <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@exemple.com">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleDropdownFormPassword1">Mot de passe</label>
-                                            <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Mot de passe">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                                                <label class="form-check-label" for="dropdownCheck">
-                                                    Se souvenir de moi
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-light">Se connecter</button>
-                                    </form>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Nouveau ? Deviens un Hexapote !</a>
-                                    <a class="dropdown-item" href="#">Mot de passe oublié ?</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li><a href="{{ path('ludotheque') }}" alt="Lien vers la ludothèque"><i class="fas fa-dice-d20 saute"></i></a></li>
-                        <li><a href="#" alt="Créer un événement avec des Hexapotes"><i class="fas fa-calendar-alt saute"></i></a></li>
-                        <li><a href="#" alt="Lien vers sa boîte de réception"><i class="fas fa-envelope saute"></i></a></li>
-                        <li><a href="#" alt="Nous contacter"><i class="fas fa-pencil-alt saute"></i></a></li>
-                        <li><a href="#" alt="Se déconnecter"><i class="fas fa-power-off saute"></i></a></li>
-                    </ul>
-                </nav>
 
-                <nav class="w-100 d-block d-sm-block d-md-none d-xl-none">
-                    <nav class="navbar navbar-light bg-light">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </nav>
-                    <div class="pos-f-t">
-                        <div class="collapse" id="navbarToggleExternalContent">
-                            <div class="bg-light p-2">
-                                <ul class="nav-responsive px-3">
-                                    <li><a href="#" alt="Lien vers l'accueil du site"><i class="fas fa-home"></i> Accueil</a></li>
-                                    <li><a href="#" alt="Lien vers la ludothèque"><i class="fas fa-dice-d20"></i> Ludothèque</a></li>
-                                    <li><a href="#" alt="Créer un événement avec des Hexapotes"><i class="fas fa-calendar-alt"></i> Sessions de jeu</a></li>
-                                    <li><a href="#" alt="Lien vers sa boîte de réception"><i class="fas fa-envelope"></i> Messagerie</a></li>
-                                    <li><a href="#" alt="Nous contacter"><i class="fas fa-pencil-alt"></i> Nous contacter</a></li>
-                                    <li><a href="#" alt="Lien vers son profil"><i class="fas fa-user saute"></i> Mon profil</a></li>
-                                    <li><a href="#" alt="Se déconnecter"><i class="fas fa-power-off"></i> Se déconnecter</a></li>
-                                </ul>
-                            </div>
+    <header>
+        <nav class="row w-100 mx-0 justify-content-between d-none d-md-flex d-lg-flex d-xl-flex">
+            <h1><a href="#" alt="Lien vers l'accueil du site">HEXAGAMES</a></h1>
+            <ul class="alignement">
+                <li>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle profil" href="#" role="button" id="dropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user saute"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <form class="px-4 py-3">
+                                <div class="form-group">
+                                    <label for="exampleDropdownFormEmail1">Adresse email</label>
+                                    <input type="email" class="form-control" id="exampleDropdownFormEmail1"
+                                           placeholder="email@exemple.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleDropdownFormPassword1">Mot de passe</label>
+                                    <input type="password" class="form-control" id="exampleDropdownFormPassword1"
+                                           placeholder="Mot de passe">
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                        <label class="form-check-label" for="dropdownCheck">
+                                            Se souvenir de moi
+                                        </label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-light">Se connecter</button>
+                            </form>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Nouveau ? Deviens un Hexapote !</a>
+                            <a class="dropdown-item" href="#">Mot de passe oublié ?</a>
                         </div>
                     </div>
-                </nav>
-            </header>
-        {% endblock %}
+                </li>
+                <li><a href="{{ path('ludotheque') }}" alt="Lien vers la ludothèque"><i
+                                class="fas fa-dice-d20 saute"></i></a></li>
+                <li><a href="#" alt="Créer un événement avec des Hexapotes"><i
+                                class="fas fa-calendar-alt saute"></i></a></li>
+                <li><a href="#" alt="Lien vers sa boîte de réception"><i class="fas fa-envelope saute"></i></a></li>
+                <li><a href="#" alt="Nous contacter"><i class="fas fa-pencil-alt saute"></i></a></li>
+                <li><a href="#" alt="Se déconnecter"><i class="fas fa-power-off saute"></i></a></li>
+            </ul>
+        </nav>
+
+        <nav class="w-100 d-block d-sm-block d-md-none d-xl-none">
+            <nav class="navbar navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+            <div class="pos-f-t">
+                <div class="collapse" id="navbarToggleExternalContent">
+                    <div class="bg-light p-2">
+                        <ul class="nav-responsive px-3">
+                            <li><a href="#" alt="Lien vers l'accueil du site"><i class="fas fa-home"></i> Accueil</a>
+                            </li>
+                            <li><a href="#" alt="Lien vers la ludothèque"><i class="fas fa-dice-d20"></i> Ludothèque</a>
+                            </li>
+                            <li><a href="#" alt="Créer un événement avec des Hexapotes"><i
+                                            class="fas fa-calendar-alt"></i> Sessions de jeu</a></li>
+                            <li><a href="#" alt="Lien vers sa boîte de réception"><i class="fas fa-envelope"></i>
+                                    Messagerie</a></li>
+                            <li><a href="#" alt="Nous contacter"><i class="fas fa-pencil-alt"></i> Nous contacter</a>
+                            </li>
+                            <li><a href="#" alt="Lien vers son profil"><i class="fas fa-user saute"></i> Mon profil</a>
+                            </li>
+                            <li><a href="#" alt="Se déconnecter"><i class="fas fa-power-off"></i> Se déconnecter</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="sectionProfil col-md-4">
+
+            <img src="/img/avatar.jpg" alt="Photo de Jane Doe"/>
+
+
+            <h3>*Pseudo*</h3>
+            <h3>*Ville*</h3>
+            <h3>*Age*</h3>
+
+
+            <!-- PARTIE LIENS DU PROFIL -->
+
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                 aria-orientation="vertical">
+
+
+                <a class="nav-link active" id="v-pills-ludo-tab" data-toggle="pill" href="#v-pills-ludo"
+                   role="tab"
+                   aria-controls="v-pills-ludo" aria-selected="true">Mon Hexaludo</a>
+
+
+                <a class="nav-link" id="v-pills-membres-tab" data-toggle="pill" href="#v-pills-membres"
+                   role="tab"
+                   aria-controls="v-pills-membres" aria-selected="false">Mes Hexapotes</a>
+
+
+                <a class="nav-link" id="v-pills-sessions-tab" data-toggle="pill" href="#v-pills-sessions"
+                   role="tab"
+                   aria-controls="v-pills-sessions" aria-selected="false">Sessions de jeu</a>
+
+
+                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages"
+                   role="tab"
+                   aria-controls="v-pills-messages" aria-selected="false">(Ma Messagerie)</a>
+
+
+                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
+                   role="tab"
+                   aria-controls="v-pills-settings" aria-selected="false">Paramètres</a>
+
+            </div>
+
+            <!-- FIN PARTIE LIENS DU PROFIL-->
+
+            <!-- FIN TEABLEAU DE BORD -->
+
+
+            <!-- Ce qui apparait quand on clique sur les liens du tableau de bord-->
+
+            <div class="tab-content" id="v-pills-tabContent">
+
+                <div class="tab-pane fade show active" id="v-pills-ludo" role="tabpanel"
+                     aria-labelledby="v-pills-ludo-tab">
+                    Voici les jeux que tu possèdes dans ta ludothèque personnelle.
+                </div>
+
+
+                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
+                     aria-labelledby="v-pills-messages-tab">
+                    Voici ta messagerie, où les autres mambres d'Hexagame peuvent te contacter pour te
+                    proposer de
+                    débuter une
+                    partie par exemple !
+                </div>
+
+                <div class="tab-pane fade" id="v-pills-membres" role="tabpanel"
+                     aria-labelledby="v-pills-membres-tab">
+                    Voici les autres membres d'Hexagames qui font partie de ton cercle personnel, tes
+                    Hexapotes.
+                </div>
+
+                <div class="tab-pane fade" id="v-pills-sessions" role="tabpanel"
+                     aria-labelledby="v-pills-sessions-tab">
+                    Voici tes annonces pour des sessions de jeux.
+                    Si tu possèdes un jeu mais que tu cherchers d'autres joueurs pour jouer avec toi, tu
+                    peux poster
+                    une annonce pour proposer à d'autres Hexapotes une partie de
+                    jeu dans votre ville.
+                    Au contraire, si tu ne possèdes pas le jeu auquel tu souhaiterais jouer, regarde les
+                    annonces
+                    postées par les autres Hexapotes pour rejoindre une partie !
+                </div>
+
+                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
+                     aria-labelledby="v-pills-settings-tab">
+                    Voici les paramètres de ton compte Hexagame. Tu peux les modifier à tout moment ici.
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
         <script src="{{ asset('js/jquery-3.5.1.slim.min.js ') }}"></script>
         <script src="{{ asset('js/popper.min.js ') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js ') }}"></script>
