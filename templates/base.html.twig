@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="stylesheet" type="text/css" href=" {{ asset('css/bootstrap.min.css') }} ">
         <link rel="stylesheet" type="text/css" href=" {{ asset('css/base.css') }} ">
@@ -45,6 +46,7 @@
                                     <a class="dropdown-item" href="#">Nouveau ? Deviens un Hexapote !</a>
                                     <a class="dropdown-item" href="#">Mot de passe oublié ?</a>
                                 </div>
+                            </div>
                         </li>
                         <li><a href="{{ path('ludotheque') }}" alt="Lien vers la ludothèque"><i class="fas fa-dice-d20 saute"></i></a></li>
                         <li><a href="#" alt="Créer un événement avec des Hexapotes"><i class="fas fa-calendar-alt saute"></i></a></li>
