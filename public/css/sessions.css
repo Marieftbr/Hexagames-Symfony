@@ -1,0 +1,122 @@
+main {
+    margin-top: 6em;
+}
+
+.bouton {
+    text-align: center;
+    color: #8667c4 !important;
+    padding: 0.7em;
+    font-weight: bold;
+    margin-bottom: 3em;
+    font-size: 2.5em;
+    text-shadow: 3px 3px 0px #ffffff;
+    background-color: rgba(255, 255, 255, 0.6);
+    display: inline-block;
+    transition: all 0.5s;
+    width: 50%;
+    font-family: "Noto Sans JP", "Helvetica", sans-serif;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.boutonPote {
+    color: #FFFFFF;
+    transition: all 0.5s;
+    position: relative;
+    border-radius: 15px;
+}
+.boutonPote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(255,255,255,0.1);
+    transition: all 0.3s;
+}
+.boutonPote:hover::before {
+    opacity: 0 ;
+    transform: scale(0.5,0.5);
+}
+.boutonPote::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border-radius: 15px;
+    border: 2px solid #c9b5f2;
+    transform: scale(1.2,1.2);
+}
+.boutonPote:hover::after {
+    opacity: 1;
+    transform: scale(1,1);
+}
+
+p.bouton {
+    line-height: 1em;
+}
+
+p span {
+    font-size: 14px;
+    color: #4A4A4A;
+    text-shadow: 1px 1px 0px #ffffff;
+}
+
+.btn {
+    background-color: #c5aafa;
+    color: #ffffff;
+    margin-bottom: 0 !important;
+}
+
+.formulaire {
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgba(229, 247, 213, 0.5);
+    padding: 2em;
+    border-radius: 15px;
+    margin-bottom: 8em;
+}
+
+label {
+    font-family: 'Raleway', sans-serif;
+    color: #4a4a4A;
+    text-shadow: 1px 1px 0px #ffffff;
+}
+
+.controls-bottom {
+    text-align: center !important;
+    margin-bottom: 3em;
+}
+
+.card {
+    background-color: rgba(229, 247, 213, 0.5);
+}
+
+.card-title {
+    font-family: 'Raleway', sans-serif;
+    color: #7343bf;
+    text-shadow: 1px 1px 0px #ffffff;
+    font-size: 22px;
+}
+
+section h3 {
+    font-family: 'Raleway', sans-serif;
+    color: #ffffff;
+    text-shadow: 2px 2px 0px #7343bf;
+}
+
+.card-text {
+    font-family: 'Raleway', sans-serif;
+    color: #4a4a4A;
+    text-shadow: 1px 1px 0px #ffffff;
+    font-size: 16px;
+}
