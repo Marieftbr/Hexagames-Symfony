@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Game;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,12 +10,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class GameProfileController extends AbstractController
 {
     /**
-     * @Route("/game/profile", name="game_profile")
+     * @Route("/game/profile/{id}", name="game_profile_id", methods={"GET"})
      */
-    public function index(): Response
+    public function index(Game $game): Response
     {
         return $this->render('game_profile/index.html.twig', [
-            'controller_name' => 'GameProfileController',
+            'game' => $game
         ]);
     }
+
 }
