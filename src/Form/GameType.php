@@ -63,7 +63,9 @@ class GameType extends AbstractType
                 ]
             ])
             ->add('ageMin', IntegerType::class)
-            ->add('photo', FileType::class)
+            ->add('photo', FileType::class, [
+                "mapped" => false
+            ])
         ;
     }
 
