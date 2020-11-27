@@ -73,11 +73,18 @@ class User implements UserInterface
      */
     private $age;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="userComment")
+     */
+    private $comment;
+
+
 
     public function __construct()
     {
         $this->my_games = new ArrayCollection();
         $this->my_hexapotes = new ArrayCollection();
+        $this->comment = new ArrayCollection();
     }
 
 
@@ -268,6 +275,38 @@ class User implements UserInterface
 
         return $this;
     }
+
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getComment(): Collection
+    {
+        return $this->comment;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comment->contains($comment)) {
+            $this->comment[] = $comment;
+            $comment->setUserComment($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comment->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getUserComment() === $this) {
+                $comment->setUserComment(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 
 
 

@@ -50,11 +50,6 @@ class Game
     private $duration;
 
     /**
-     * @ORM\Column(type="string", length=10, nullable=true)
-     */
-    private $note;
-
-    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $ageMin;
@@ -84,10 +79,21 @@ class Game
      */
     private $users;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $note;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="gameComment")
+     */
+    private $comment;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
         $this->users = new ArrayCollection();
+        $this->comment = new ArrayCollection();
     }
 
 
@@ -157,17 +163,6 @@ class Game
         return $this;
     }
 
-    public function getNote(): ?string
-    {
-        return $this->note;
-    }
-
-    public function setNote(?string $note): self
-    {
-        $this->note = $note;
-
-        return $this;
-    }
 
     public function getAgeMin(): ?int
     {
@@ -276,6 +271,48 @@ class Game
     {
         if ($this->users->removeElement($user)) {
             $user->removeMyGame($this);
+        }
+
+        return $this;
+    }
+
+    public function getNote(): ?int
+    {
+        return $this->note;
+    }
+
+    public function setNote(?int $note): self
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getComment(): Collection
+    {
+        return $this->comment;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comment->contains($comment)) {
+            $this->comment[] = $comment;
+            $comment->setGameComment($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comment->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getGameComment() === $this) {
+                $comment->setGameComment(null);
+            }
         }
 
         return $this;
