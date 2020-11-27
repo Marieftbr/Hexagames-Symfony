@@ -27,25 +27,16 @@ class Comment
      */
     private $createdAt;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Game::class)
-     */
-    private $game;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class)
-     */
-    private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity=Game::class, inversedBy="comment")
      */
-    private $gameComment;
+    private $game;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="comment")
      */
-    private $userComment;
+    private $user;
 
 
     public function getId(): ?int
@@ -97,30 +88,6 @@ class Comment
     public function setUser(?User $user): self
     {
         $this->user = $user;
-
-        return $this;
-    }
-
-    public function getGameComment(): ?Game
-    {
-        return $this->gameComment;
-    }
-
-    public function setGameComment(?Game $gameComment): self
-    {
-        $this->gameComment = $gameComment;
-
-        return $this;
-    }
-
-    public function getUserComment(): ?User
-    {
-        return $this->userComment;
-    }
-
-    public function setUserComment(?User $userComment): self
-    {
-        $this->userComment = $userComment;
 
         return $this;
     }

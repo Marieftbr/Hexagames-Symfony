@@ -300,7 +300,7 @@ class Game
     {
         if (!$this->comment->contains($comment)) {
             $this->comment[] = $comment;
-            $comment->setGameComment($this);
+            $comment->setGame($this);
         }
 
         return $this;
@@ -310,8 +310,8 @@ class Game
     {
         if ($this->comment->removeElement($comment)) {
             // set the owning side to null (unless already changed)
-            if ($comment->getGameComment() === $this) {
-                $comment->setGameComment(null);
+            if ($comment->getGame() === $this) {
+                $comment->setGame(null);
             }
         }
 

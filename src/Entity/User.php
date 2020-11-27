@@ -78,6 +78,11 @@ class User implements UserInterface
      */
     private $comment;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $photo;
+
 
 
     public function __construct()
@@ -288,7 +293,7 @@ class User implements UserInterface
     {
         if (!$this->comment->contains($comment)) {
             $this->comment[] = $comment;
-            $comment->setUserComment($this);
+            $comment->setUser($this);
         }
 
         return $this;
@@ -298,10 +303,22 @@ class User implements UserInterface
     {
         if ($this->comment->removeElement($comment)) {
             // set the owning side to null (unless already changed)
-            if ($comment->getUserComment() === $this) {
-                $comment->setUserComment(null);
+            if ($comment->getUser() === $this) {
+                $comment->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }
