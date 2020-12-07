@@ -118,3 +118,29 @@ nav li {
 .dropdown-menu a {
     color: #74b53a;
 }
+
+header h4 {
+    text-align: center;
+}
+
+.pp {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+
+#mySidebar {
+    text-align: center;
+    padding: 10px;
+
+}
+
+.infos {
+    border: 1px solid pink;
+}
+
+.pagebar {
+    background-color: #5e60ce;
+}
