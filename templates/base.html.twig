@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="stylesheet" type="text/css" href=" {{ asset('css/bootstrap.min.css') }} ">
-        <link rel="stylesheet" type="text/css" href=" {{ asset('css/base.css') }} ">
-        <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" >
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Raleway:wght@800;900&display=swap">
-        {% block stylesheets %}
-        {% endblock %}
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href=" {{ asset('css/bootstrap.min.css') }} ">
+    <link rel="stylesheet" type="text/css" href=" {{ asset('css/base.css') }} ">
+    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css2?family=Raleway:wght@800;900&display=swap">
+    {% block stylesheets %}
+    {% endblock %}
+</head>
+<body>
 
-    <header>
+<header>
 
-<!-- DEBUT NAV -->
+    <!-- DEBUT NAV -->
 
-        <nav class="row w-100 mx-0 justify-content-between d-none d-md-flex d-lg-flex d-xl-flex">
-            <h1><a href="#" alt="Lien vers l'accueil du site">HEXAGAMES</a></h1>
-            <ul class="alignement">
-                <li>
-                    <div class="dropdown">
-                        <a class="dropdown-toggle profil" href="#" role="button" id="dropdownMenuLink"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-user saute"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <form class="px-4 py-3">
+    <nav class="row w-100 mx-0 justify-content-between d-none d-md-flex d-lg-flex d-xl-flex">
+        <h1><a href="/" alt="Lien vers l'accueil du site">HEXAGAMES</a></h1>
+        <ul class="alignement">
+            <li>
+                <div class="dropdown">
+                    <a class="dropdown-toggle profil" href="#" role="button" id="dropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user saute"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <form class="px-4 py-3" method="post" action="{{ path("app_login") }}">
                                 <div class="form-group">
                                     <label for="exampleDropdownFormEmail1">Adresse email</label>
-                                    <input type="email" class="form-control" id="exampleDropdownFormEmail1"
+                                    <input name="email" type="email" class="form-control" id="exampleDropdownFormEmail1"
                                            placeholder="email@exemple.com">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleDropdownFormPassword1">Mot de passe</label>
-                                    <input type="password" class="form-control" id="exampleDropdownFormPassword1"
+                                    <input name="password" type="password" class="form-control"
+                                           id="exampleDropdownFormPassword1"
                                            placeholder="Mot de passe">
                                 </div>
                                 <div class="form-group">
@@ -47,163 +51,178 @@
                                         </label>
                                     </div>
                                 </div>
+                                <input type="hidden" name="_csrf_token"
+                                       value="{{ csrf_token('authenticate') }}">
                                 <button type="submit" class="btn btn-light">Se connecter</button>
                             </form>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Nouveau ? Deviens un Hexapote !</a>
                             <a class="dropdown-item" href="#">Mot de passe oublié ?</a>
-                        </div>
+                        {% else %}
+                            <p>Email: {{ app.user.email }}</p>
+                        {% endif %}
+
+
                     </div>
+                </div>
+            </li>
+            <li><a href="{{ path('ludotheque') }}" alt="Lien vers la ludothèque"><i
+                            class="fas fa-dice-d20 saute"></i></a></li>
+            <li><a href="#" alt="Créer un événement avec des Hexapotes"><i
+                            class="fas fa-calendar-alt saute"></i></a></li>
+            <li><a href="#" alt="Lien vers sa boîte de réception"><i class="fas fa-envelope saute"></i></a></li>
+            <li><a href="#" alt="Nous contacter"><i class="fas fa-pencil-alt saute"></i></a></li>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li>
+                    <a href="{{ path('app_logout') }}"><i class="fas fa-power-off"></i></a>
                 </li>
-                <li><a href="{{ path('ludotheque') }}" alt="Lien vers la ludothèque"><i
-                                class="fas fa-dice-d20 saute"></i></a></li>
-                <li><a href="#" alt="Créer un événement avec des Hexapotes"><i
-                                class="fas fa-calendar-alt saute"></i></a></li>
-                <li><a href="#" alt="Lien vers sa boîte de réception"><i class="fas fa-envelope saute"></i></a></li>
-                <li><a href="#" alt="Nous contacter"><i class="fas fa-pencil-alt saute"></i></a></li>
-                <li><a href="#" alt="Se déconnecter"><i class="fas fa-power-off saute"></i></a></li>
-            </ul>
-        </nav>
+            {% endif %}
+        </ul>
+    </nav>
 
-        <nav class="w-100 d-block d-sm-block d-md-none d-xl-none">
-            <nav class="navbar navbar-light bg-light">
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </nav>
-            <div class="pos-f-t">
-                <div class="collapse" id="navbarToggleExternalContent">
-                    <div class="bg-light p-2">
-                        <ul class="nav-responsive px-3">
-                            <li><a href="#" alt="Lien vers l'accueil du site"><i class="fas fa-home"></i> Accueil</a>
-                            </li>
-                            <li><a href="#" alt="Lien vers la ludothèque"><i class="fas fa-dice-d20"></i> Ludothèque</a>
-                            </li>
-                            <li><a href="#" alt="Créer un événement avec des Hexapotes"><i
-                                            class="fas fa-calendar-alt"></i> Sessions de jeu</a></li>
-                            <li><a href="#" alt="Lien vers sa boîte de réception"><i class="fas fa-envelope"></i>
-                                    Messagerie</a></li>
-                            <li><a href="#" alt="Nous contacter"><i class="fas fa-pencil-alt"></i> Nous contacter</a>
-                            </li>
-                            <li><a href="#" alt="Lien vers son profil"><i class="fas fa-user saute"></i> Mon profil</a>
-                            </li>
-                            <li><a href="#" alt="Se déconnecter"><i class="fas fa-power-off"></i> Se déconnecter</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-<!-- FIN NAV -->
-<!-- DEBUT SIDEBAR -->
-
-        <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-            <button class="w3-bar-item w3-button w3-large"
-                    onclick="w3_close()">Close &times;
+    <nav class="w-100 d-block d-sm-block d-md-none d-xl-none">
+        <nav class="navbar navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-
-
-            <div class="infos">
-
-                <img class="pp" src="/img/jim.jpg" alt="Photo de Jim"/>
-
-                <h4>*Pseudo*</h4>
-                <h4>*Ville*</h4>
-                <h4>*Age*</h4>
-
-            </div>
-
-            <br/>
-
-            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
-                 aria-orientation="vertical">
-
-                <a class="nav-link active" id="v-pills-profil-tab" data-toggle="pill" href="#v-pills-profil"
-                   role="tab"
-                   aria-controls="v-pills-ludo" aria-selected="true">Mon Profil</a>
-
-                <a class="nav-link" id="v-pills-ludo-tab" data-toggle="pill" href="#v-pills-ludo"
-                   role="tab"
-                   aria-controls="v-pills-ludo" aria-selected="true">Mon Hexaludo</a>
-
-
-                <a class="nav-link" id="v-pills-membres-tab" data-toggle="pill" href="#v-pills-membres"
-                   role="tab"
-                   aria-controls="v-pills-membres" aria-selected="false">Mes Hexapotes</a>
-
-
-                <a class="nav-link" id="v-pills-sessions-tab" data-toggle="pill" href="#v-pills-sessions"
-                   role="tab"
-                   aria-controls="v-pills-sessions" aria-selected="false">Sessions de jeu</a>
-
-
-                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages"
-                   role="tab"
-                   aria-controls="v-pills-messages" aria-selected="false">(Ma Messagerie)</a>
-
-
-                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
-                   role="tab"
-                   aria-controls="v-pills-settings" aria-selected="false">Paramètres</a>
-            </div>
-        </div>
-
-        <script>
-            function w3_open() {
-                document.getElementById("main").style.marginLeft = "25%";
-                document.getElementById("mySidebar").style.width = "25%";
-                document.getElementById("mySidebar").style.display = "block";
-                document.getElementById("openNav").style.display = 'none';
-            }
-            function w3_close() {
-                document.getElementById("main").style.marginLeft = "0%";
-                document.getElementById("mySidebar").style.display = "none";
-                document.getElementById("openNav").style.display = "inline-block";
-            }
-        </script>
-
-<!-- FIN SIDEBAR -->
-    </header>
-
-
-    {% block body %}
-        <div id="main">
-
-            <div class="pagebar row">
-                <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
-                <div class="w3-container">
-                    <h1 class="titre">Mon profil</h1>
+        </nav>
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-light p-2">
+                    <ul class="nav-responsive px-3">
+                        <li><a href="#" alt="Lien vers l'accueil du site"><i class="fas fa-home"></i> Accueil</a>
+                        </li>
+                        <li><a href="#" alt="Lien vers la ludothèque"><i class="fas fa-dice-d20"></i> Ludothèque</a>
+                        </li>
+                        <li><a href="#" alt="Créer un événement avec des Hexapotes"><i
+                                        class="fas fa-calendar-alt"></i> Sessions de jeu</a></li>
+                        <li><a href="#" alt="Lien vers sa boîte de réception"><i class="fas fa-envelope"></i>
+                                Messagerie</a></li>
+                        <li><a href="#" alt="Nous contacter"><i class="fas fa-pencil-alt"></i> Nous contacter</a>
+                        </li>
+                        <li><a href="#" alt="Lien vers son profil"><i class="fas fa-user saute"></i> Mon profil</a>
+                        </li>
+                        {% if is_granted('IS_FULLY_AUTHENTICATED') %}
+                        <li>
+                            <a href="{{ path('app_logout') }}" alt="Se déconnecter"><i class="fas fa-power-off"></i> Se déconnecter</a>
+                        </li>
+                        {% endif %}
+                    </ul>
                 </div>
             </div>
+        </div>
+    </nav>
 
+    <!-- FIN NAV -->
+    <!-- DEBUT SIDEBAR -->
+
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+        <button class="w3-bar-item w3-button w3-large"
+                onclick="w3_close()">Close &times;
+        </button>
+
+
+        <div class="infos">
+
+            <img class="pp" src="/img/jim.jpg" alt="Photo de Jim"/>
+
+            <h4>*Pseudo*</h4>
+            <h4>*Ville*</h4>
+            <h4>*Age*</h4>
+
+        </div>
+
+        <br/>
+
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+             aria-orientation="vertical">
+
+            <a class="nav-link active" id="v-pills-profil-tab" data-toggle="pill" href="#v-pills-profil"
+               role="tab"
+               aria-controls="v-pills-ludo" aria-selected="true">Mon Profil</a>
+
+            <a class="nav-link" id="v-pills-ludo-tab" data-toggle="pill" href="#v-pills-ludo"
+               role="tab"
+               aria-controls="v-pills-ludo" aria-selected="true">Mon Hexaludo</a>
+
+
+            <a class="nav-link" id="v-pills-membres-tab" data-toggle="pill" href="#v-pills-membres"
+               role="tab"
+               aria-controls="v-pills-membres" aria-selected="false">Mes Hexapotes</a>
+
+
+            <a class="nav-link" id="v-pills-sessions-tab" data-toggle="pill" href="#v-pills-sessions"
+               role="tab"
+               aria-controls="v-pills-sessions" aria-selected="false">Sessions de jeu</a>
+
+
+            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages"
+               role="tab"
+               aria-controls="v-pills-messages" aria-selected="false">(Ma Messagerie)</a>
+
+
+            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
+               role="tab"
+               aria-controls="v-pills-settings" aria-selected="false">Paramètres</a>
+        </div>
+    </div>
+
+    <script>
+        function w3_open() {
+            document.getElementById("main").style.marginLeft = "25%";
+            document.getElementById("mySidebar").style.width = "25%";
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("openNav").style.display = 'none';
+        }
+
+        function w3_close() {
+            document.getElementById("main").style.marginLeft = "0%";
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("openNav").style.display = "inline-block";
+        }
+    </script>
+
+    <!-- FIN SIDEBAR -->
+</header>
+
+
+{% block body %}
+    <div id="main">
+
+        <div class="pagebar row">
+            <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
             <div class="w3-container">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore esse explicabo incidunt,
-                    ipsum
-                    laboriosam non,
-                    nulla numquam odit perferendis provident quibusdam rem repellat sit unde vitae voluptate voluptates
-                    voluptatum.
-                    Aspernatur deserunt ducimus in laboriosam laudantium libero maxime nemo tenetur veniam voluptatibus.
-                    Consequuntur dolor est expedita facere illum iusto maiores minus possimus, quae quia quis quod
-                    rerum,
-                    sapiente similique veritatis.
-                    Accusamus accusantium dignissimos doloribus enim facilis laboriosam libero reiciendis voluptates?
-                    Ab adipisci animi at consectetur, dolorem facere ipsa iusto natus placeat possimus quis quisquam
-                    quos unde,
-                    vel voluptates? Aperiam, facere.
-                    xcepturi exercitationem illum qui? Id ipsa libero minus necessitatibus, recusandae sunt!</p>
+                <h1 class="titre">Mon profil</h1>
             </div>
         </div>
-    {% endblock %}
 
-        <script src="{{ asset('js/jquery-3.5.1.slim.min.js ') }}"></script>
-        <script src="{{ asset('js/popper.min.js ') }}"></script>
-        <script src="{{ asset('js/bootstrap.min.js ') }}"></script>
-        <script src="https://kit.fontawesome.com/7f37cf6bc8.js" crossorigin="anonymous"></script>
-        {% block javascripts %}
+        <div class="w3-container">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore esse explicabo incidunt,
+                ipsum
+                laboriosam non,
+                nulla numquam odit perferendis provident quibusdam rem repellat sit unde vitae voluptate voluptates
+                voluptatum.
+                Aspernatur deserunt ducimus in laboriosam laudantium libero maxime nemo tenetur veniam voluptatibus.
+                Consequuntur dolor est expedita facere illum iusto maiores minus possimus, quae quia quis quod
+                rerum,
+                sapiente similique veritatis.
+                Accusamus accusantium dignissimos doloribus enim facilis laboriosam libero reiciendis voluptates?
+                Ab adipisci animi at consectetur, dolorem facere ipsa iusto natus placeat possimus quis quisquam
+                quos unde,
+                vel voluptates? Aperiam, facere.
+                xcepturi exercitationem illum qui? Id ipsa libero minus necessitatibus, recusandae sunt!</p>
+        </div>
+    </div>
+{% endblock %}
 
-        {% endblock %}
-    </body>
+<script src="{{ asset('js/jquery-3.5.1.slim.min.js ') }}"></script>
+<script src="{{ asset('js/popper.min.js ') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js ') }}"></script>
+<script src="https://kit.fontawesome.com/7f37cf6bc8.js" crossorigin="anonymous"></script>
+{% block javascripts %}
+
+{% endblock %}
+</body>
 </html>
