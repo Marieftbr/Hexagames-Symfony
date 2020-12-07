@@ -40,6 +40,9 @@ class GameProfileController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
             $comment->setGame($game);
+            $comment->setCreatedAt(new \DateTime());
+            $comment->setUser($this->getUser());
+
 
             $entityManager->persist($comment);
             $entityManager->flush();

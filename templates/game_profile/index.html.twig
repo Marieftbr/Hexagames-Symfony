@@ -128,9 +128,11 @@
                         <a href="{{ path('game_add_comment', {'id': game.id}) }}"><i class="fas fa-plus"></i></a>
                     {% endif %}
 
+                    {% for comment in game.comment %}
                     <p>
-                        game.comment
+                        {{ comment.content }}
                     </p>
+                    {% endfor %}
                 </div>
             </section>
             <section class="game-user">

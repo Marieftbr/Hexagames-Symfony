@@ -85,7 +85,7 @@ class Game
     private $note;
 
     /**
-     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="gameComment")
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="game")
      */
     private $comment;
 
