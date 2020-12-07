@@ -6,90 +6,173 @@
 {% endblock %}
 
 {% block body %}
-    <main class="container">
-        {% for game in games %}
-        <section>
-            <h1>{{ game.name }}</h1>
-            <div class="d-flex">
-                <div class="col-md-4">
-                    <img class="game-main-image" src="{{ game.photo }}" alt="" />
-                </div>
-                <div class="flex-col">
-                    <h2>Synopsis/histoire</h2>
+    <main>
+        <div class="container">
+            <section>
+                <h1>{{ game.name }}</h1>
+                <div class="d-flex">
+                    <div class="col-md-4">
+                        <img class="game-main-image" src="{{ game.photo }}" alt=""/>
+                    </div>
+                    <div class="flex-col">
+                        <h2>Synopsis/histoire</h2>
 
-                    <div class="">
-                        <p>
-                            {{game.synopsis}}
-                        </p>
+                        <div class="">
+                            <p>
+                                {{ game.synopsis }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Notes</h3>
+                        <div class="note-wrapper">
+                            {% for i in range(0,4) %}
+                                <div class="note-dice">
+                                    {% if i < game.note %}
+                                        <i class="fas fa-dice-d20"></i>
+                                    {% else %}
+                                        <i class="fas fa-dice-d20 white"></i>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <h3>Notes</h3>
-                    {% for i in range(0,4) %}
-                        {% if i < game.note %}
-                            <div class="note-dice">
-                                <i class="fas fa-dice-d20"></i>
-                            </div>
-                        {% else %}
-                            <i class="fas fa-dice-d20 white"></i>
-                        {% endif %}
-                    {% endfor %}
+            </section>
 
+            <section class="">
 
+                <a
+                        class="btn btn-info"
+                        data-toggle="collapse"
+                        href="#descriptionCollapse"
+                        role="button"
+                        aria-expanded="false"
+                        aria-controls="collapseExample"
+                >
+                    Description
+                </a>
+                <div class="collapse" id="descriptionCollapse">
+                    <div class="card card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                        richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
+                        anderson cred nesciunt sapiente ea proident.
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section class="avis">
-            <div class="border-gradient border-gradient-purple">
-                <h2>Avis</h2>
-                {% for comments in game.comment %}
-                <p>
-                </p>
-                {% endfor %}
-            </div>
-        </section>
-        <section class="game-user">
-            <h2>Ceux qui le possède</h2>
-            <div class="border-gradient border-gradient-purple">
-                <div class="profiles">
-                    <i class="carousel-icon-left carousel-icon fa fa-chevron-left"></i>
-                    {% for users in user  %}{% endfor %}
-                    <a class="profile" href="#">
-                        <img src="{{ user.photo }}" alt="" class="rounded-circle" />
-                    </a>
-                    <a class="profile" href="#">
-                        <img src="{{ asset('img/8.jpg') }}" alt="" class="rounded-circle" />
-                    </a>
-                    <a class="profile" href="#">
-                        <img src="{{ asset('img/19.jpg') }}" alt="" class="rounded-circle" />
-                    </a>
-                    <a class="profile" href="#">
-                        <img src="{{ asset('img/21.jpg') }}" alt="" class="rounded-circle" />
-                    </a>
-                    <a class="profile" href="#">
-                        <img src="{{ asset('img/54.jpg') }}" alt="" class="rounded-circle" />
-                    </a>
-                    <a class="profile" href="#">
-                        <img src="{{ asset('img/80.jpg') }}" alt="" class="rounded-circle" />
-                    </a>
-                    <a class="profile" href="#">
-                        <img src="{{ asset('img/86.jpg') }}" alt="" class="rounded-circle" />
-                    </a>
-                    <a class="profile" href="#">
-                        <img src="{{ asset('img/91.jpg') }}" alt="" class="rounded-circle" />
-                    </a>
-                    <a class="profile" href="#">
-                        <img src="{{ asset('img/3.jpg') }}" alt="" class="rounded-circle" />
-                    </a>
-                    <i
-                            class="carousel-icon-right carousel-icon fa fa-chevron-right"
-                    ></i>
+                <a
+                        class="btn btn-info"
+                        data-toggle="collapse"
+                        href="#infosCollapse"
+                        role="button"
+                        aria-expanded="false"
+                        aria-controls="collapseExample"
+                >
+                    Fiche Technique
+                </a>
+                <div class="collapse" id="infosCollapse">
+                    <div class="card card-body">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>Catégorie(s)</td>
+
+                                <td>
+                                    {% for category in categories %}
+                                        {{ category.name }}
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Genre(s)</td>
+                                <td>{{ game.types }}</td>
+                            </tr>
+                            <tr>
+                                <td>Durée</td>
+                                <td>{{ game.duration }}</td>
+                            </tr>
+                            <tr>
+                                <td>Editeur(s)</td>
+                                <td>{{ game.editor.name }}</td>
+                            </tr>
+                            <tr>
+                                <td>Age Minimum</td>
+                                <td>{{ game.ageMin }}</td>
+                            </tr>
+                            <tr>
+                                <td>ISBN</td>
+                                <td>{{ game.isbn }}</td>
+                            </tr>
+                            <tr>
+                                <td>Nombre de joueur Minimum</td>
+                                <td>{{ game.playerNumberMin }}</td>
+                            </tr>
+                            <tr>
+                                <td>Nombre de joueur Maximum</td>
+                                <td>{{ game.playerNumberMax }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+
                 </div>
-            </div>
-        </section>
-        {% endfor %}
+            </section>
+
+            <section class="avis">
+                <div class="border-gradient border-gradient-purple">
+                    <h2>Avis</h2>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <a href="{{ path('game_add_comment', {'id': game.id}) }}"><i class="fas fa-plus"></i></a>
+                    {% endif %}
+
+                    <p>
+                        game.comment
+                    </p>
+                </div>
+            </section>
+            <section class="game-user">
+                <h2>Ceux qui le possède</h2>
+                <div class="border-gradient border-gradient-purple">
+                    <div class="profiles">
+                        <i class="carousel-icon-left carousel-icon fa fa-chevron-left"></i>
+                        <a class="profile" href="#">
+                            <img src="{{ asset('img/3.jpg') }}" alt="" class="rounded-circle"/>
+                        </a>
+                        <a class="profile" href="#">
+                            <img src="{{ asset('img/8.jpg') }}" alt="" class="rounded-circle"/>
+                        </a>
+                        <a class="profile" href="#">
+                            <img src="{{ asset('img/19.jpg') }}" alt="" class="rounded-circle"/>
+                        </a>
+                        <a class="profile" href="#">
+                            <img src="{{ asset('img/21.jpg') }}" alt="" class="rounded-circle"/>
+                        </a>
+                        <a class="profile" href="#">
+                            <img src="{{ asset('img/54.jpg') }}" alt="" class="rounded-circle"/>
+                        </a>
+                        <a class="profile" href="#">
+                            <img src="{{ asset('img/80.jpg') }}" alt="" class="rounded-circle"/>
+                        </a>
+                        <a class="profile" href="#">
+                            <img src="{{ asset('img/86.jpg') }}" alt="" class="rounded-circle"/>
+                        </a>
+                        <a class="profile" href="#">
+                            <img src="{{ asset('img/91.jpg') }}" alt="" class="rounded-circle"/>
+                        </a>
+                        <a class="profile" href="#">
+                            <img src="{{ asset('img/3.jpg') }}" alt="" class="rounded-circle"/>
+                        </a>
+                        <i
+                                class="carousel-icon-right carousel-icon fa fa-chevron-right"
+                        ></i>
+                    </div>
+                </div>
+            </section>
+        </div>
+
     </main>
 
 

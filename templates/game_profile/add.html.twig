@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(comment_form) }}
+    {{ form_widget(comment_form) }}
+    <input type="submit">
+    {{ form_end(comment_form) }}
+
+{% endblock %}

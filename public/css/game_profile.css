@@ -122,3 +122,13 @@ i {
 .border-gradient-purple {
   border-image-source: linear-gradient(to left, #d6ecd7, #bee5ee, #b3afd8);
 }
+
+.note-wrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#onglet2 {
+  display: none;
+}
