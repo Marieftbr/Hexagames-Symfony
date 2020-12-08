@@ -27,12 +27,11 @@
                         <div class="d-flex note-flex">
                             <h3>Notes</h3>
                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                <a href="{{ path('game_add_note', {'id': game.id}) }}"><i
+                                <a href="{{ path('game_set_note', {'id': game.id}) }}"><i
                                             class="fas fa-plus plus-color"></i></a>
                             {% endif %}
                         </div>
                         <div class="note-wrapper">
-                            {# <form id="note-form"> #}
                             {% for i in range(0,4) %}
                                 <div class="note-dice" data-value="{{ i + 1 }}">
                                     {% if i < game.note %}
@@ -41,9 +40,7 @@
                                         <i class="fas fa-dice-d20 white"></i>
                                     {% endif %}
                                 </div>
-                                {# <input type="hidden"> #}
                             {% endfor %}
-                            {# </form> #}
                         </div>
 
                     </div>

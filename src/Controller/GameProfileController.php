@@ -10,6 +10,7 @@ use App\Entity\User;
 use App\Form\CommentType;
 use App\Form\NoteType;
 use App\Repository\GameRepository;
+use App\Repository\NoteRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -60,11 +61,16 @@ class GameProfileController extends AbstractController
     }
 
     /**
-     * @Route("/note/add/{id}", name="game_add_note", methods={"GET", "POST"})
+     * @Route("/note/add/{id}", name="game_set_note", methods={"GET", "POST"})
      */
-    public function addNote(Game $game, Request $request, EntityManagerInterface $entityManager)
+    public function setNote(Game $game, Request $request, EntityManagerInterface $entityManager, NoteRepository $noteRepository)
     {
-        $note = new Note();
+        $currentNote = $noteRepository->findOneBy([
+            "user" => $this->getUser(),
+            "game" => $game
+        ]);
+
+        $note = !is_null($currentNote) ? $currentNote : new Note();
         $form = $this->createForm(NoteType::class, $note);
         $form->handleRequest($request);
 
@@ -75,10 +81,12 @@ class GameProfileController extends AbstractController
             $entityManager->persist($note);
             $entityManager->flush();
 
+            return $this->redirectToRoute("game_profile_id", ["id" => $game->getId()]);
         }
 
-        return $this->render('game_profile/add_note.html.twig', [
+        return $this->render('game_profile/set_note.html.twig', [
             'note_form' => $form->createView(),
+            'current_note' => !is_null($currentNote) ? $currentNote->getNote() : 0
         ]);
     }
 

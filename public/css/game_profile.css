@@ -44,7 +44,7 @@ box-shadow: 10px 5px 5px #b7a8d9;
   flex-direction: row;
 } */
 .note-dice {
-  margin: 10px;
+  padding: 10px;
 }
 
 .avis {
@@ -143,4 +143,8 @@ i {
 
 .comment-flex{
   justify-content: space-between;
+}
+
+.note-setter .note-dice-active i {
+  color: #9025cd!important;
 }

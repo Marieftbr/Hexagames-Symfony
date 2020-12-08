@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href=" {{ asset('css/game_profile.css') }} ">
+{% endblock %}
+
+{% block body %}
+    {{ form_start(note_form) }}
+    {{ form_widget(note_form) }}
+
+    <div class="note-wrapper note-setter">
+    {% for i in range(0,4) %}
+        <div class="note-dice" data-value="{{ i + 1 }}">
+            {% if i < current_note %}
+                <i class="fas fa-dice-d20"></i>
+            {% else %}
+                <i class="fas fa-dice-d20 white"></i>
+            {% endif %}
+        </div>
+    {% endfor %}
+    </div>
+    <input type="submit" value="Enregistrer">
+    {{ form_end(note_form) }}
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/set_note.js') }}"></script>
+{% endblock %}
