@@ -19,7 +19,7 @@
 
     </section>
 
-    <section class="pt">
+    <section class="pt-4 row">
         {% for game in games %}
             <div class="col-md-6">
                 <div class="card game-card mb-3">
@@ -31,12 +31,15 @@
                             <div class="col-8 game-card-content">
                                 <h5 class="card-title">{{ game.name }}</h5>
                                 <p class="card-text card-text-main">
-                                    {{ game.synopsis }}
+                                    {% if game.synopsis|length > 500 %}
+                                        {{ game.synopsis|slice(0, 500) }}&nbsp;...
+                                    {% else %}
+                                        {{ game.synopsis }}
+                                    {% endif %}
+
                                 </p>
-                                <p class="card-text">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                </p>
-                                <button><a href="{{ path('game_profile_id', {'id': game.id}) }}">Voir la fiche du jeu</a></button>
+                                <a class="btn btn-primary" href="{{ path('game_profile_id', {'id': game.id}) }}">Voir la
+                                    fiche du jeu</a>
                             </div>
                         </div>
                     </div>
@@ -45,12 +48,6 @@
         {% endfor %}
         {% endblock %}
         {% block javascripts %}
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/clamp-js/0.7.0/clamp.js" integrity="sha512-TnePtmz3HL4p8nFS2lR46u0iHrwObVnUednDASZK/qS9btkd09xKs1PeCt1kpS4a0gWNQx1AF+WnDHDK+xWcAw==" crossorigin="anonymous"></script>
             <script src="{{ asset('js/toggle.js') }}"></script>
-            <script>
-                for(const element of document.querySelectorAll(".card-text-main")) {
-                    $clamp(element, {clamp: 'auto', useNativeClamp: true});
-                }
-            </script>
         {% endblock %}
 

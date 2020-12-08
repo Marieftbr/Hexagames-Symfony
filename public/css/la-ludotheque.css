@@ -55,8 +55,12 @@ nav {
 
 .game-card {
   position: relative;
-  /*padding-bottom: 75%;*/
   width: 100%;
+  height: 450px;
+}
+
+.no-gutters .game-card-content {
+  padding-left: 10px;
 }
 
 .game-card .card-body {
@@ -66,12 +70,3 @@ nav {
   /*right: 0;*/
   /*bottom: 0;*/
 }
-
-
-
-/*.game-card .card-text-main:before {*/
-/*  content: "...";*/
-/*  position: absolute;*/
-/*  bottom: 0;*/
-/*  right: 0;*/
-/*}*/
