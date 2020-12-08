@@ -24,8 +24,23 @@ class GameProfileController extends AbstractController
     /**
      * @Route("/game/profile/{id}", name="game_profile_id", methods={"GET"})
      */
-    public function index(Game $game): Response
+    public function index(Game $game, NoteRepository $noteRepository): Response
     {
+        $notes = $noteRepository->findBy([
+            "game" => $game
+        ]);
+
+        $average = 0;
+
+        if(!empty($notes)) {
+            $numericNotes = array_map(function($note) {
+                return $note->getNote();
+            }, $notes);
+            $average = array_sum($numericNotes) / count($notes);
+        }
+
+        $game->setNote($average);
+
         return $this->render('game_profile/index.html.twig', [
             'game' => $game,
             'categories' => $game->getCategories()
@@ -50,6 +65,8 @@ class GameProfileController extends AbstractController
 
             $entityManager->persist($comment);
             $entityManager->flush();
+
+            return $this->redirectToRoute("game_profile_id", ["id" => $game->getId()]);
 
         }
         return $this->render('game_profile/add_comment.html.twig', [
