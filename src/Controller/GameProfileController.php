@@ -44,7 +44,6 @@ class GameProfileController extends AbstractController
         return $this->render('game_profile/index.html.twig', [
             'game' => $game,
             'categories' => $game->getCategories()
-
         ]);
     }
 

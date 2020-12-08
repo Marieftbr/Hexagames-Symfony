@@ -48,36 +48,22 @@
             </section>
 
             <section class="">
-
-                <a
-                        class="btn btn-info"
-                        data-toggle="collapse"
-                        href="#descriptionCollapse"
-                        role="button"
-                        aria-expanded="false"
-                        aria-controls="collapseExample"
-                >
-                    Description
-                </a>
-                <div class="collapse" id="descriptionCollapse">
+                <div class="tabs btn-group">
+                    <a class="tab btn tab-active" href="#description-content">
+                        Description
+                    </a>
+                    <a class="tab btn" href="#infos-content">
+                        Fiche Technique
+                    </a>
+                </div>
+                <div id="description-content" class="tab-content tab-content-active">
                     <div class="card card-body">
                         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
                         richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
                         anderson cred nesciunt sapiente ea proident.
                     </div>
                 </div>
-
-                <a
-                        class="btn btn-info"
-                        data-toggle="collapse"
-                        href="#infosCollapse"
-                        role="button"
-                        aria-expanded="false"
-                        aria-controls="collapseExample"
-                >
-                    Fiche Technique
-                </a>
-                <div class="collapse" id="infosCollapse">
+                <div id="infos-content" class="tab-content">
                     <div class="card card-body">
                         <table>
                             <tbody>
@@ -128,14 +114,14 @@
             </section>
 
             <section class="avis">
+                <div class="d-flex note-flex">
+                    <h2>Avis</h2>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <a href="{{ path('game_add_comment', {'id': game.id}) }}"><i
+                                    class="fas fa-plus plus-color"></i></a>
+                    {% endif %}
+                </div>
                 <div class="border-gradient border-gradient-purple">
-                    <div class="d-flex note-flex">
-                        <h2>Avis</h2>
-                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <a href="{{ path('game_add_comment', {'id': game.id}) }}"><i
-                                        class="fas fa-plus plus-color"></i></a>
-                        {% endif %}
-                    </div>
                     <div class="comment-list">
                     {% for comment in game.comment %}
                         <div class="row comment">

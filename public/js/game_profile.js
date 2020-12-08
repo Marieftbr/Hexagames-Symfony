@@ -22,4 +22,15 @@ $(function () {
       $(this).css("left", newValue);
     });
   });
+
+  $(".tab").click(function($event) {
+    $event.preventDefault();
+    const target = $(this).attr("href");
+
+    $(".tab").removeClass("tab-active");
+    $(".tab-content").hide();
+
+    $(target).show();
+    $(this).addClass("tab-active");
+  })
 });
