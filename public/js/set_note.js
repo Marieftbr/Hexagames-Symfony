@@ -23,9 +23,4 @@ noteDice.mouseenter(function(){
     }
 });
 
-noteDice.mouseleave(function(){
-    const val = $(this).data("value");
-    for(const die of noteDice.toArray().filter(die => $(die).data("value") <= val)) {
-        $(die).removeClass("note-dice-active");
-    }
-});
+noteDice.mouseleave(() => noteDice.removeClass("note-dice-active"));

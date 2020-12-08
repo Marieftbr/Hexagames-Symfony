@@ -139,6 +139,7 @@ i {
 
 .note-flex {
   justify-content: space-between;
+  align-items: center;
 }
 
 .comment-flex{
@@ -147,4 +148,14 @@ i {
 
 .note-setter .note-dice-active i {
   color: #9025cd!important;
+}
+
+.comment-avatar {
+  margin: 0;
+}
+
+.comment-list {
+  max-height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

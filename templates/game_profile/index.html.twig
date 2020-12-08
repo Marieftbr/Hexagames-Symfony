@@ -136,22 +136,22 @@
                                         class="fas fa-plus plus-color"></i></a>
                         {% endif %}
                     </div>
-
-
+                    <div class="comment-list">
                     {% for comment in game.comment %}
-                        <div class="col-md-3">
-                            <img src="{{ asset('img/91.jpg') }}">
-                            <h4>{{ comment.user.pseudo }}</h4>
-                            <p>{{ comment.createdAt | date('d m Y') }}</p>
-                        </div>
-                        <div class="col-md-9">
-
-                            <p>
-                                {{ comment.content }}
-
-                            </p>
+                        <div class="row comment">
+                            <div class="col-md-3 comment-author-zone">
+                                <img class="comment-avatar" src="{{ asset('img/91.jpg') }}">
+                                <h4 class="comment-author-name">{{ comment.user.pseudo }}</h4>
+                                <p class="comment-create-at">{{ comment.createdAt | date('d/m/Y à H:m') }}</p>
+                            </div>
+                            <div class="col-md-9">
+                                <p>
+                                    {{ comment.content }}
+                                </p>
+                            </div>
                         </div>
                     {% endfor %}
+                    </div>
                 </div>
             </section>
             <section class="game-user">
