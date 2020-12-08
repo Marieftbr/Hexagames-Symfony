@@ -5,7 +5,10 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Entity\Comment;
 use App\Entity\Game;
+use App\Entity\Note;
+use App\Entity\User;
 use App\Form\CommentType;
+use App\Form\NoteType;
 use App\Repository\GameRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -48,12 +51,35 @@ class GameProfileController extends AbstractController
             $entityManager->flush();
 
         }
-        return $this->render('game_profile/add.html.twig', [
+        return $this->render('game_profile/add_comment.html.twig', [
             'comment_form' => $form->createView(),
         ]);
 
 
 
+    }
+
+    /**
+     * @Route("/note/add/{id}", name="game_add_note", methods={"GET", "POST"})
+     */
+    public function addNote(Game $game, Request $request, EntityManagerInterface $entityManager)
+    {
+        $note = new Note();
+        $form = $this->createForm(NoteType::class, $note);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $note->setGame($game);
+            $note->setUser($this->getUser());
+
+            $entityManager->persist($note);
+            $entityManager->flush();
+
+        }
+
+        return $this->render('game_profile/add_note.html.twig', [
+            'note_form' => $form->createView(),
+        ]);
     }
 
 }

@@ -24,3 +24,9 @@ $(function () {
   });
 });
 
+// $(".note-dice").click(
+//     function(){
+//       const val = $(this).data("value");
+//           $("name = note").val(val);
+//       $("#note-form").submit()
+// });

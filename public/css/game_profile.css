@@ -132,3 +132,15 @@ i {
 #onglet2 {
   display: none;
 }
+.plus-color{
+  color: #BDE2ED;
+
+}
+
+.note-flex {
+  justify-content: space-between;
+}
+
+.comment-flex{
+  justify-content: space-between;
+}
