@@ -15,7 +15,7 @@
                         <img class="game-main-image" src="{{ game.photo }}" alt=""/>
                     </div>
                     <div class="flex-col">
-                        <h2>Synopsis/histoire</h2>
+                        <h2>Synopsis</h2>
 
                         <div class="">
                             <p>
@@ -125,9 +125,11 @@
                             <div class="row comment">
                                 <div class="col-md-3 comment-author-zone">
                                     {% if comment.user.photo %}
-                                        <img alt="Avatar" class="comment-avatar rounded-circle" src="{{ comment.user.photo }}"/>
+                                        <img alt="Avatar" class="comment-avatar rounded-circle"
+                                             src="{{ comment.user.photo }}"/>
                                     {% else %}
-                                        <img alt="Avatar" class="comment-avatar rounded-circle" src="{{ asset('img/icon.png') }}"/>
+                                        <img alt="Avatar" class="comment-avatar rounded-circle"
+                                             src="{{ asset('img/icon.png') }}"/>
                                     {% endif %}
                                     <h4 class="comment-author-name">{{ comment.user.pseudo }}</h4>
                                     <p class="comment-create-at">{{ comment.createdAt | date('d/m/Y à H:m') }}</p>

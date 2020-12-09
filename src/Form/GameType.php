@@ -59,7 +59,9 @@ class GameType extends AbstractType
                     'Type de jeux' => null,
                     'jeux de plateaux' => 1,
                     'jeux de rôle' => 2,
-                    'jeux de carte' => 3
+                    'jeux de carte' => 3,
+                    'jeux avec figurines' => 4,
+                    'deckbuilding' => 5
                 ]
             ])
             ->add('ageMin', IntegerType::class)

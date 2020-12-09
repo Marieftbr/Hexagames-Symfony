@@ -17,7 +17,7 @@ game:
   playerNumberMin: {label: Nombre de joueurs Minimum}
   playerNumberMax: {label: Nombre de joueurs Maximum}
   duration: {label: Durée}
-  category: {label: Catégories}
+  categories: {label: Catégories}
   types: {label: Genre}
   ageMin: {label: Âge Minimum}
   photo: {label: Image}
