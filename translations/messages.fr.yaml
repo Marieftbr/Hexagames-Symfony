@@ -21,3 +21,16 @@ game:
   types: {label: Genre}
   ageMin: {label: Âge Minimum}
   photo: {label: Image}
+  description: {label: Description}
+
+
+user:
+  pseudo: {label: Pseudo}
+  lastname: {label: Prénom}
+  firstname: {label: Nom}
+  password: {label: Mot de passe}
+  email: {label: Email}
+  age: {label: Âge}
+  city: {label: Ville}
+  photo: {label: Photo}
+

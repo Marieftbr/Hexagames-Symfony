@@ -8,6 +8,10 @@
 {% block body %}
 <div class="container pb-3">
     <h1>Nos jeux</h1>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('new_game') }}" class="btn btn-primary">
+            Ajouter un jeu</a>
+    {% endif %}
     <section>
         <button class="form-open">Filtres</button>
         <div id="form-toggle">
