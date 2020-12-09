@@ -79,14 +79,14 @@ h2 {
 }
 
 .concept {
-    background-color: #ADDCFF;
+    background-color: #7cdbfc;
     width: 90%;
     margin: 0 auto;
     border-radius: 15px;
     text-align: justify;
     font-family: 'Noto Sans JP', sans-serif;
     color: #ffffff;
-    text-shadow: 2px 2px 0px #70C1FF;
+    text-shadow: 1px 1px 0px #5ea0b8;
     -webkit-box-shadow: inset 0px 0px 21px -3px #47AFFF, 3px 3px 0px 0px rgba(255,255,255,1);
     -moz-box-shadow: inset 0px 0px 21px -3px #47AFFF, 3px 3px 0px 0px rgba(255,255,255,1);
     box-shadow: inset 0px 0px 21px -3px #47AFFF, 3px 3px 0px 0px rgba(255,255,255,1);

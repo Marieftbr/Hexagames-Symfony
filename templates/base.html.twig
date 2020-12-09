@@ -101,9 +101,9 @@
                         <li><a href="#" alt="Nous contacter"><i class="fas fa-pencil-alt"></i> Nous contacter</a></li>
                         <li><a href="#" alt="Lien vers son profil"><i class="fas fa-user saute"></i> Mon profil</a></li>
                         {% if is_granted('IS_FULLY_AUTHENTICATED') %}
-                        <li>
-                            <a href="{{ path('app_logout') }}" alt="Se déconnecter"><i class="fas fa-power-off"></i> Se déconnecter</a>
-                        </li>
+                            <li>
+                                <a href="{{ path('app_logout') }}" alt="Se déconnecter"><i class="fas fa-power-off"></i> Se déconnecter</a>
+                            </li>
                         {% endif %}
                     </ul>
                 </div>
@@ -213,12 +213,12 @@
     </div>
 {% endblock %}
 
-<script src="{{ asset('js/jquery-3.5.1.slim.min.js') }}"></script>
-<script src="{{ asset('js/popper.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script src="https://kit.fontawesome.com/7f37cf6bc8.js" crossorigin="anonymous"></script>
-{% block javascripts %}
 
+{% block javascripts %}
+    <script src="{{ asset('js/jquery-3.5.1.slim.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="https://kit.fontawesome.com/7f37cf6bc8.js" crossorigin="anonymous"></script>
 {% endblock %}
 </body>
 </html>
