@@ -71,7 +71,7 @@
             <li><a href="{{ path('sessions') }}" alt="Créer un événement avec des Hexapotes"><i
                             class="fas fa-calendar-alt saute"></i></a></li>
             <li><a href="#" alt="Lien vers sa boîte de réception"><i class="fas fa-comment-dots saute"></i></a></li>
-            <li><a href="#" alt="Nous contacter"><i class="fas fa-envelope saute"></i></a></li>
+            <li><a href="{{ path('contact_us') }}" alt="Nous contacter"><i class="fas fa-envelope saute"></i></a></li>
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <li>
                     <a href="{{ path('app_logout') }}"><i class="fas fa-power-off"></i></a>
