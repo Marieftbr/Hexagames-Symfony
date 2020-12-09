@@ -18,25 +18,29 @@ class LudoType extends AbstractType
         $builder
             ->setMethod('GET')
             ->add('types', ChoiceType::class, [
+                'placeholder' => 'Type de jeux',
                 'choices' => [
-                    'Type de jeux' => null,
                     'jeux de plateaux' => 1,
                     'jeux de rôle' => 2,
                     'jeux de carte' => 3
-                ]
+                ],
+                'required' => false
             ])
             ->add('editor', EntityType::class, [
                 'placeholder' => 'Editeur',
                 'class' => Editor::class,
                 'choice_label' => 'name',
+                'required' => false
             ])
             ->add('playerNumberMin', IntegerType::class, [
-                // 'placeholder' => 'Nombre de joueurs',
+                'required' => false
             ])
             ->add('playerNumberMax', IntegerType::class, [
-                //'placeholder' => 'Nombre de joueurs',
+                'required' => false
             ])
-            ->add('ageMin', IntegerType::class)
+            ->add('ageMin', IntegerType::class, [
+                'required' => false
+            ])
             ->add('duration', ChoiceType::class, [
                 'choices' => [
                     'Durée' => null,
@@ -49,14 +53,15 @@ class LudoType extends AbstractType
                     '5h' => 5 * 60,
                     '6h' => 6 * 60,
                     '7h' => 7 * 60
-                ]
+                ],
+                'required' => false
             ])
             ->add('category', EntityType::class, [
                 'placeholder' => 'Catégories',
                 'class' => Category::class,
                 'choice_label' => 'name',
-            ])
-        ;
+                'required' => false
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -24,12 +24,51 @@ class LudoController extends AbstractController
         $form = $this->createForm(LudoType::class);
         $form->handleRequest($request);
 
+        $formCriterias = $form->getData();
 
+        $queryBuilder = $gameRepository->createQueryBuilder("game")
+            ->select();
 
+        if (isset($formCriterias["types"])) {
+            $queryBuilder->andWhere("game.types = :type")
+                ->setParameter("type", $formCriterias["types"]);
+        }
+
+        if (isset($formCriterias["editor"])) {
+            $queryBuilder->andWhere("game.editor = :editor")
+                ->setParameter("editor", $formCriterias["editor"]);
+        }
+
+        if (isset($formCriterias["playerNumberMin"])) {
+            $queryBuilder->andWhere("game.playerNumberMin = :playerNumberMin")
+                ->setParameter("playerNumberMin", $formCriterias["playerNumberMin"]);
+        }
+
+        if (isset($formCriterias["playerNumberMax"])) {
+            $queryBuilder->andWhere("game.playerNumberMax = :playerNumberMax")
+                ->setParameter("playerNumberMax", $formCriterias["playerNumberMax"]);
+        }
+
+        if (isset($formCriterias["ageMin"])) {
+            $queryBuilder->andWhere("game.ageMin <= :ageMin")
+                ->setParameter("ageMin", $formCriterias["ageMin"]);
+        }
+
+        if (isset($formCriterias["duration"])) {
+            $queryBuilder->andWhere("game.duration <= :duration")
+                ->setParameter("duration", $formCriterias["duration"]);
+        }
+
+        if (isset($formCriterias["category"])) {
+            $queryBuilder
+                ->innerJoin("game.categories", "category")
+                ->andWhere("category.id = :category")
+                ->setParameter("category", $formCriterias["category"]);
+        }
 
         return $this->render('ludotheque/la-ludotheque.html.twig', [
             'ludo_form' => $form->createView(),
-            'games' => $gameRepository->findAll(),
+            'games' => $queryBuilder->getQuery()->execute(),
         ]);
     }
 }
