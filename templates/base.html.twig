@@ -70,8 +70,8 @@
                             class="fas fa-dice-d20 saute"></i></a></li>
             <li><a href="#" alt="Créer un événement avec des Hexapotes"><i
                             class="fas fa-calendar-alt saute"></i></a></li>
-            <li><a href="#" alt="Lien vers sa boîte de réception"><i class="fas fa-envelope saute"></i></a></li>
-            <li><a href="#" alt="Nous contacter"><i class="fas fa-pencil-alt saute"></i></a></li>
+            <li><a href="#" alt="Lien vers sa boîte de réception"><i class="fas fa-comment-dots saute"></i></a></li>
+            <li><a href="#" alt="Nous contacter"><i class="fas fa-envelope saute"></i></a></li>
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <li>
                     <a href="{{ path('app_logout') }}"><i class="fas fa-power-off"></i></a>
@@ -96,10 +96,10 @@
                         <li><a href="#" alt="Lien vers la ludothèque"><i class="fas fa-dice-d20"></i> Ludothèque</a></li>
                         <li><a href="#" alt="Créer un événement avec des Hexapotes"><i
                                         class="fas fa-calendar-alt"></i> Sessions de jeu</a></li>
-                        <li><a href="#" alt="Lien vers sa boîte de réception"><i class="fas fa-envelope"></i>
+                        <li><a href="#" alt="Lien vers sa boîte de réception"><i class="fas fa-comment-dots"></i>
                                 Messagerie</a></li>
-                        <li><a href="#" alt="Nous contacter"><i class="fas fa-pencil-alt"></i> Nous contacter</a></li>
-                        <li><a href="#" alt="Lien vers son profil"><i class="fas fa-user saute"></i> Mon profil</a></li>
+                        <li><a href="#" alt="Nous contacter"><i class="fas fa-envelope"></i> Nous contacter</a></li>
+                        <li><a href="#" alt="Lien vers son profil"><i class="fas fa-user"></i> Mon profil</a></li>
                         {% if is_granted('IS_FULLY_AUTHENTICATED') %}
                             <li>
                                 <a href="{{ path('app_logout') }}" alt="Se déconnecter"><i class="fas fa-power-off"></i> Se déconnecter</a>
