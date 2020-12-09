@@ -34,3 +34,9 @@ user:
   city: {label: Ville}
   photo: {label: Photo}
 
+contactUs:
+  lastname: {label: Nom}
+  firstname: {label: Prénom}
+  email: {label: Email}
+  subject: {label: Sujet}
+  message: {label: Message}
