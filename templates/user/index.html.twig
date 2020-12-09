@@ -1,20 +1,40 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello UserController!{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href=" {{ asset('css/user-profile.css') }} ">
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <section>
+        <h1>Ma ludothèque</h1>
+        <div class="profiles">
+            <i class="carousel-icon-left carousel-icon fa fa-chevron-left"></i>
+            <a class="profile" href="#">
+{#                <img src="{{ user.my_games }}" alt="" class="rounded-circle"/>#}
+            </a>
+            <i
+                    class="carousel-icon-right carousel-icon fa fa-chevron-right"
+            ></i>
+        </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/marie/Desktop/Projet/Hexagames/src/Controller/UserController.php'|file_link(0) }}">src/Controller/UserController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/marie/Desktop/Projet/Hexagames/templates/user/index.html.twig'|file_link(0) }}">templates/user/index.html.twig</a></code></li>
-    </ul>
-</div>
+    </section>
+
+    <section>
+        <h1>Mes hexapotes</h1>
+        <div class="profiles">
+            <i class="carousel-icon-left carousel-icon fa fa-chevron-left"></i>
+            <a class="profile" href="#">
+                {#                <img src="{{ user.my_hexapotes }}" alt="" class="rounded-circle"/>#}
+            </a>
+            <i
+                    class="carousel-icon-right carousel-icon fa fa-chevron-right"
+            ></i>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/carousel.js') }}"></script>
 {% endblock %}
