@@ -8,25 +8,34 @@
 {% block body %}
 
     <section>
-        <h1>Ma ludothèque</h1>
-        <div class="profiles">
-            <i class="carousel-icon-left carousel-icon fa fa-chevron-left"></i>
-            <a class="profile" href="#">
-{#                <img src="{{ user.my_games }}" alt="" class="rounded-circle"/>#}
+        <h1>{{ user.pseudo }}</h1>
+        <h2>
+            <span>Ma ludothèque</span>
+            <a href="{{ path('user_select_games') }}">
+                <i class="fa fas fa-plus"></i>
             </a>
-            <i
-                    class="carousel-icon-right carousel-icon fa fa-chevron-right"
-            ></i>
+        </h2>
+        <div class="my-games profiles">
+            <i class="carousel-icon-left carousel-icon fa fa-chevron-left"></i>
+            {% for game in user.myGames %}
+                <a class="game profile" href="{{ path('game_profile_id', {'id': game.id}) }}">
+                    <img src="{{ game.photo }}" alt="" class="rounded-circle"/>
+                    <span>{{ game.name }}</span>
+                </a>
+            {% endfor %}
+            <i class="carousel-icon-right carousel-icon fa fa-chevron-right"></i>
         </div>
 
     </section>
 
     <section>
-        <h1>Mes hexapotes</h1>
+        <h2>Mes hexapotes</h2>
         <div class="profiles">
             <i class="carousel-icon-left carousel-icon fa fa-chevron-left"></i>
             <a class="profile" href="#">
-                {#                <img src="{{ user.my_hexapotes }}" alt="" class="rounded-circle"/>#}
+                {% for hexapote in user.myHexapotes %}
+                    <img src="{{ hexapote }}" alt="" class="rounded-circle"/>
+                {% endfor %}
             </a>
             <i
                     class="carousel-icon-right carousel-icon fa fa-chevron-right"

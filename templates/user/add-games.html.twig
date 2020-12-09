@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href=" {{ asset('css/user-profile.css') }} ">
+{% endblock %}
+
+{% block body %}
+    {{ form_start(select_games_form) }}
+    {{ form_widget(select_games_form) }}
+    <input type="submit">
+    {{ form_end(select_games_form) }}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/carousel.js') }}"></script>
+{% endblock %}
