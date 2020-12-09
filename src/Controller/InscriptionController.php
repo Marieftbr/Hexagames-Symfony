@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\InscriptionType;
+use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +18,7 @@ class InscriptionController extends AbstractController
     /**
      * @Route("/inscription", name="inscription")
      */
-    public function inscription(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function inscription(Request $request, UserPasswordEncoderInterface $passwordEncoder, FileUploader $uploader)
     {
         $user = new User();
         $form = $this->createForm(InscriptionType::class, $user);
@@ -31,6 +32,9 @@ class InscriptionController extends AbstractController
                     $form->get('password')->getData()
                 )
             );
+            $photoFile = $form["photo"]->getData();
+            $filepath= $uploader->upload($photoFile);
+            $user->setPhoto($filepath);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);

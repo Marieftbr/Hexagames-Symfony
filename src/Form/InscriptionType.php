@@ -5,6 +5,7 @@ namespace App\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -28,17 +29,21 @@ class InscriptionType extends AbstractType
             ])
             ->add('email', EmailType::class)
             ->add('age', BirthdayType::class, [
-                'placeholder' => 'Select a value',
+                'placeholder' => [
+                    'year' => 'Year', 'month' => 'Month', 'day' => 'Day',
+                ],
                 'format' => 'dd-MM-yyyy'
             ])
             ->add('city', TextType::class)
-        ;
+            ->add('photo', FileType::class, [
+                "mapped" => false
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'label_format' => 'user.%name%.label',
         ]);
     }
 }
