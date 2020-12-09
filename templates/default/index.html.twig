@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Accueil
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/index.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="button devenirPote mx-0 mt-4 flex-row-reverse d-none d-md-flex d-xl-flex">
+    <a href="{{ path('inscription') }}" alt="Lien pour s'inscrire" class="devenir button-three">Deviens un Hexapote !</a>
+</div>
+<main>
+    <div class="hexa d-none d-sm-none d-md-flex d-xl-flex justify-content-center">
+        <img src="{{ asset('img/Logo_Hexa_1.png') }}" alt="Logo d'Hexagames">
+    </div>
+    <div class="hexa d-flex d-sm-flex d-md-none d-xl-none justify-content-center">
+        <img src="{{ asset('img/Logo_Hexa_mobile.png') }}" alt="Logo d'Hexagames">
+    </div>
+    <div class="concept px-4 py-4 mb-4">
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam autem sunt amet odio, cupiditate explicabo esse dolorem dicta in, minima ullam officia quia? Commodi sit beatae incidunt a ipsam repudiandae?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, facere harum! Fugit optio nostrum quaerat deleniti repellat velit dolores omnis natus, minima ullam nihil veritatis suscipit eaque odio vitae explicabo.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam quidem ut veniam ratione cum repellendus cupiditate vitae maxime numquam? Debitis ad qui cum illo est repellendus deleniti minima doloribus corrupti.
+        </p>
+    </div>
+    <div class="hexagones d-none d-sm-none d-md-flex d-xl-flex row justify-content-around">
+        <a href="{{ path('user') }}"><img src="{{ asset('img/hex_purp.png') }}" class="hex1" /></a>
+        <img src="{{ asset('img/hex_gre.png') }}" alt="Image d'un hexagone" class="hex2" />
+        <a href="{{ path('ludotheque') }}"><img src="{{ asset('img/hex_purp.png') }}" class="hex3" /></a>
+    </div>
+    <div class="txt-hexagones d-none d-sm-none d-md-flex d-xl-flex row justify-content-around">
+        <p class="pd-profil">Profil</p>
+        <p class="pd-concept">Concept</p>
+        <p>Ludothèque</p>
+    </div>
+    <div class="hexagones d-flex d-sm-flex d-md-none d-xl-none justify-content-center">
+        <img src="{{ asset('img/hex_gre.png') }}" alt="Image d'un hexagone" class="hex2" />
+    </div>
+    <div class="txt-hexagones d-flex d-sm-flex d-md-none d-xl-none justify-content-center">
+        <p>Concept</p>
+    </div>
+</main>
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('js/jquery-3.5.1.slim.min.js') }}"></script>
+<script src="{{ asset('js/popper.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="https://kit.fontawesome.com/7f37cf6bc8.js" crossorigin="anonymous"></script>
+<script src="{{ asset('js/accueil.js') }}"></script>
+{% endblock %}

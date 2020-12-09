@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>{% block title %}HEXAGAMES{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href=" {{ asset('css/bootstrap.min.css') }} ">
     <link rel="stylesheet" type="text/css" href=" {{ asset('css/base.css') }} ">
     <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -83,27 +83,23 @@
     <nav class="w-100 d-block d-sm-block d-md-none d-xl-none">
         <nav class="navbar navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    data-target="#navbarResponsive" aria-controls="navbarResponsive"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </nav>
         <div class="pos-f-t">
-            <div class="collapse" id="navbarToggleExternalContent">
+            <div class="collapse" id="navbarResponsive">
                 <div class="bg-light p-2">
                     <ul class="nav-responsive px-3">
-                        <li><a href="#" alt="Lien vers l'accueil du site"><i class="fas fa-home"></i> Accueil</a>
-                        </li>
-                        <li><a href="#" alt="Lien vers la ludothèque"><i class="fas fa-dice-d20"></i> Ludothèque</a>
-                        </li>
+                        <li><a href="#" alt="Lien vers l'accueil du site"><i class="fas fa-home"></i> Accueil</a></li>
+                        <li><a href="#" alt="Lien vers la ludothèque"><i class="fas fa-dice-d20"></i> Ludothèque</a></li>
                         <li><a href="#" alt="Créer un événement avec des Hexapotes"><i
                                         class="fas fa-calendar-alt"></i> Sessions de jeu</a></li>
                         <li><a href="#" alt="Lien vers sa boîte de réception"><i class="fas fa-envelope"></i>
                                 Messagerie</a></li>
-                        <li><a href="#" alt="Nous contacter"><i class="fas fa-pencil-alt"></i> Nous contacter</a>
-                        </li>
-                        <li><a href="#" alt="Lien vers son profil"><i class="fas fa-user saute"></i> Mon profil</a>
-                        </li>
+                        <li><a href="#" alt="Nous contacter"><i class="fas fa-pencil-alt"></i> Nous contacter</a></li>
+                        <li><a href="#" alt="Lien vers son profil"><i class="fas fa-user saute"></i> Mon profil</a></li>
                         {% if is_granted('IS_FULLY_AUTHENTICATED') %}
                         <li>
                             <a href="{{ path('app_logout') }}" alt="Se déconnecter"><i class="fas fa-power-off"></i> Se déconnecter</a>
@@ -217,9 +213,9 @@
     </div>
 {% endblock %}
 
-<script src="{{ asset('js/jquery-3.5.1.slim.min.js ') }}"></script>
-<script src="{{ asset('js/popper.min.js ') }}"></script>
-<script src="{{ asset('js/bootstrap.min.js ') }}"></script>
+<script src="{{ asset('js/jquery-3.5.1.slim.min.js') }}"></script>
+<script src="{{ asset('js/popper.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script src="https://kit.fontawesome.com/7f37cf6bc8.js" crossorigin="anonymous"></script>
 {% block javascripts %}
 
