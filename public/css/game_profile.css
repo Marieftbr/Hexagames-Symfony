@@ -153,6 +153,8 @@ i {
 
 .comment-avatar {
   margin: 0;
+  width: 50%;
+
 }
 
 .comment-list {
@@ -173,3 +175,12 @@ i {
   background: #DBC9FF;
   color: white;
 }
+
+.comment-content{
+  padding: 40px;
+  background-color: #BFCDE0;
+  border-bottom-right-radius: 80px 80px;
+  border-top-left-radius: 80px 80px;
+  border-top-right-radius: 80px 80px;
+}
+

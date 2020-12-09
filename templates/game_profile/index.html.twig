@@ -58,9 +58,7 @@
                 </div>
                 <div id="description-content" class="tab-content tab-content-active">
                     <div class="card card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                        richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-                        anderson cred nesciunt sapiente ea proident.
+                        {{ game.description }}
                     </div>
                 </div>
                 <div id="infos-content" class="tab-content">
@@ -115,7 +113,7 @@
 
             <section class="avis">
                 <div class="d-flex note-flex">
-                    <h2>Avis</h2>
+                    <h2>Commentaires</h2>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         <a href="{{ path('game_add_comment', {'id': game.id}) }}"><i
                                     class="fas fa-plus plus-color"></i></a>
@@ -123,20 +121,24 @@
                 </div>
                 <div class="border-gradient border-gradient-purple">
                     <div class="comment-list">
-                    {% for comment in game.comment %}
-                        <div class="row comment">
-                            <div class="col-md-3 comment-author-zone">
-                                <img class="comment-avatar" src="{{ asset('img/91.jpg') }}">
-                                <h4 class="comment-author-name">{{ comment.user.pseudo }}</h4>
-                                <p class="comment-create-at">{{ comment.createdAt | date('d/m/Y à H:m') }}</p>
+                        {% for comment in game.comment %}
+                            <div class="row comment">
+                                <div class="col-md-3 comment-author-zone">
+                                    {% if comment.user.photo %}
+                                        <img alt="Avatar" class="comment-avatar rounded-circle" src="{{ comment.user.photo }}"/>
+                                    {% else %}
+                                        <img alt="Avatar" class="comment-avatar rounded-circle" src="{{ asset('img/icon.png') }}"/>
+                                    {% endif %}
+                                    <h4 class="comment-author-name">{{ comment.user.pseudo }}</h4>
+                                    <p class="comment-create-at">{{ comment.createdAt | date('d/m/Y à H:m') }}</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="comment-content">
+                                        {{ comment.content }}
+                                    </p>
+                                </div>
                             </div>
-                            <div class="col-md-9">
-                                <p>
-                                    {{ comment.content }}
-                                </p>
-                            </div>
-                        </div>
-                    {% endfor %}
+                        {% endfor %}
                     </div>
                 </div>
             </section>

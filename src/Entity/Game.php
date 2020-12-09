@@ -89,6 +89,11 @@ class Game
      */
     private $comment;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -314,6 +319,18 @@ class Game
                 $comment->setGame(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
