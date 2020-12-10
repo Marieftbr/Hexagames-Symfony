@@ -23,7 +23,7 @@
 
     <nav class="row w-100 mx-0 d-none d-md-flex d-lg-flex d-xl-flex">
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <button id="openNav" class="w3-button w3-xlarge" onclick="w3_toggle()">&#9776;</button>
+            <button id="openNav" class="w3-button w3-xlarge" onclick="w3_toggle()">&#9776;</button>
         {% endif %}
         <h1><a href="/" alt="Lien vers l'accueil du site">HEXAGAMES</a></h1>
         <ul class="alignement ml-auto">
@@ -148,7 +148,7 @@
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
              aria-orientation="vertical">
 
-            <a class="nav-link active" id="v-pills-profil-tab" data-toggle="pill"
+            <a class="nav-link active" id="v-pills-profil-tab"
                href="{{ path('user_profile_id', {'id': app.user.id}) }}"
                role="tab"
                aria-controls="v-pills-ludo" aria-selected="true">Mon Profil</a>
