@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SettingsController!{% endblock %}
+
+{% block body %}
+{{ form_start(form_settings) }}
+    {{ form_widget(form_settings) }}
+    <input type="submit" value="Enregistrer">
+    {{ form_end(form_settings) }}
+{% endblock %}
