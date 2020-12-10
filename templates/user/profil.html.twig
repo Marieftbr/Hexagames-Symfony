@@ -1,9 +1,11 @@
-<link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.min.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" type="text/css" href=" {{ asset('css/profil.css') }} ">
-
-
 {% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href=" {{ asset('css/bootstrap.min.css') }} ">
+    <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href=" {{ asset('css/profil.css') }} ">
+{% endblock %}
 
 {% block body %}
     <div id="main">
@@ -30,4 +32,10 @@
                 xcepturi exercitationem illum qui? Id ipsa libero minus necessitatibus, recusandae sunt!</p>
         </div>
     </div>
+
+
+
+    <script src="{{ asset('js/jquery-3.5.1.slim.min.js ') }}"></script>
+    <script src="{{ asset('js/popper.min.js ') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js ') }}"></script>
 {% endblock %}
