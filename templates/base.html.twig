@@ -11,7 +11,7 @@
           href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
     <link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/css2?family=Raleway:wght@800;900&display=swap">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/dashboard.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/dashboard.css') }}">
     {% block stylesheets %}
     {% endblock %}
 </head>
@@ -22,7 +22,9 @@
     <!-- DEBUT NAV -->
 
     <nav class="row w-100 mx-0 d-none d-md-flex d-lg-flex d-xl-flex">
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <button id="openNav" class="w3-button w3-xlarge" onclick="w3_toggle()">&#9776;</button>
+        {% endif %}
         <h1><a href="/" alt="Lien vers l'accueil du site">HEXAGAMES</a></h1>
         <ul class="alignement ml-auto">
             <li>
@@ -125,9 +127,9 @@
 
     <!-- FIN NAV -->
     <!-- DEBUT SIDEBAR -->
-
+    {% if app.user %}
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-        {% if app.user %}
+
         <div class="infos">
 
             {% if app.user.photo %}
@@ -146,7 +148,8 @@
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
              aria-orientation="vertical">
 
-            <a class="nav-link active" id="v-pills-profil-tab" data-toggle="pill" href="{{ path('user_profile_id', {'id': app.user.id}) }}"
+            <a class="nav-link active" id="v-pills-profil-tab" data-toggle="pill"
+               href="{{ path('user_profile_id', {'id': app.user.id}) }}"
                role="tab"
                aria-controls="v-pills-ludo" aria-selected="true">Mon Profil</a>
 
