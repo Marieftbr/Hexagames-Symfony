@@ -4,6 +4,7 @@ namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -18,10 +19,14 @@ class SettingsType extends AbstractType
             ->add('pseudo', TextType::class)
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
-            ->add('age', DateTimeType::class)
+            ->add('age', DateType::class, [
+                'years' => range(1900,  date("Y"))
+            ])
             ->add('city', TextType::class)
             ->add('mail', EmailType::class)
-            ->add('password', PasswordType::class)
+            ->add('password', PasswordType::class, [
+                "required" => false
+            ])
         ;
     }
 
