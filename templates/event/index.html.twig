@@ -15,10 +15,12 @@
                 <span class="d-none d-xs-none d-sm-none d-md-block d-xl-block">Envie de jouer avec d'autres Hexapotes ? Crée ton événement juste ici !</span>
             </p>
         </div>
+        <div class="collapse formulaire" id="collapseCreer">
         {{ form_start(createEvent) }}
         {{ form_widget(createEvent) }}
-        <input type="submit" value="Enregistrer">
+            <input type="submit" class="btn btn-lg btn-block mb-5" value="Poste ta demande !">
         {{ form_end(createEvent) }}
+        </div>
         <div class="button d-flex justify-content-center" data-toggle="collapse" data-target="#collapseRejoindre" aria-expanded="false" aria-controls="collapseExample">
             <p class="bouton boutonPote">Rejoindre une session de jeu<br />
                 <span class="d-none d-xs-none d-sm-none d-md-block d-xl-block">Plutôt envie d'être le.a dernier.e joueur.se qu'on a tant de mal à trouver ? C'est par là !</span>
@@ -157,7 +159,65 @@
                 <span class="d-none d-xs-none d-sm-none d-md-block d-xl-block">Quelles sont les récentes envies des Hexapotes ? Découvre-les en cliquant ici !</span>
             </p>
         </div>
+
         <section class="pt-5 pb-5 container collapse" id="collapseRecent">
+            <div class="justify-content-center row">
+                <div class="col-md-5">
+                    <h3 class="mb-3">Ca a été posté récemment !</h3>
+                </div>
+                <div class="col-md-5 text-right">
+                    <a class="btn mb-3 mr-1" href="#carousel-events" role="button" data-slide="prev"><i class="fa fa-arrow-left"></i></a>
+                    <a class="btn mb-3 " href="#carousel-events" role="button" data-slide="next"><i class="fa fa-arrow-right"></i></a>
+                </div>
+                <div class="col-10">
+                        <div id="carousel-events" class="carousel slide carousel-multi-item" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                {% for event in events %}
+                                    <li data-target="#carouselExampleIndicators2" data-slide-to="{{ loop.index0 }}"></li>
+                                {% endfor %}
+                            </ol>
+                            <div class="carousel-inner">
+                                {% for event in events %}
+                                <div class="carousel-item row {{ loop.first ? 'active': '' }}">
+                                    <div class="row justify-content-around">
+                                        <div class="card col-md-3 mb-3">
+                                            <div class="card-body">
+                                                <h4 class="card-title">{{ event.title }}</h4>
+                                                <p class="card-text"><i class="fas fa-dice"></i> {{ event.game.name }}<br />
+                                                    <i class="fas fa-user-friends"></i> {{ event.numberPlayer }}<br />
+                                                    <i class="fas fa-calendar-day"></i> {{ event.date|date('d/m/Y') }}<br />
+                                                    <i class="fas fa-map-marker-alt"></i> {{ event.location }}</p>
+                                                <a class="btn">+ d'informations</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {#<section class="pt-5 pb-5 container collapse" id="collapseRecent">
             <div class="justify-content-center row">
                 <div class="col-md-5">
                     <h3 class="mb-3">Ca a été posté récemment !</h3>
@@ -167,105 +227,24 @@
                     <a class="btn mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next"><i class="fa fa-arrow-right"></i></a>
                 </div>
                 <div class="col-10">
-                    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                    {% for event in events %}
+                    <div id="carouselExampleIndicators2" class="carousel slide carousel-multi-item" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            {% for event in events %}
+                                <li data-target="#carouselExampleIndicators2" data-slide-to="{{ loop.index-1 }}"
+                                    class="{{ loop.first ? 'active': '' }}"></li>
+                            {% endfor %}
+                        </ol>
                         <div class="carousel-inner">
-                            <div class="carousel-item active row">
+                            <div class="carousel-item row {{ loop.first ? 'active': '' }}">
                                 <div class="row justify-content-around">
                                     <div class="card col-md-3 mb-3">
                                         <div class="card-body">
-                                            <h4 class="card-title">D&D détente</h4>
-                                            <p class="card-text"><i class="fas fa-dice"></i> Donjons & Dragons<br />
-                                                <i class="fas fa-user-friends"></i> 0/3<br />
-                                                <i class="fas fa-calendar-day"></i> 15/11/2020<br />
-                                                <i class="fas fa-map-marker-alt"></i> Paris (75)</p>
-                                            <a class="btn">+ d'informations</a>
-                                        </div>
-                                    </div>
-                                    <div class="card col-md-3 mb-3">
-                                        <div class="card-body">
-                                            <h4 class="card-title">Monopoly meurtrier</h4>
-                                            <p class="card-text"><i class="fas fa-dice"></i> Monopoly<br />
-                                                <i class="fas fa-user-friends"></i> 1/4<br />
-                                                <i class="fas fa-calendar-day"></i> 03/11/2020<br />
-                                                <i class="fas fa-map-marker-alt"></i> Nantes (44)</p>
-                                            <a class="btn">+ d'informations</a>
-                                        </div>
-                                    </div>
-                                    <div class="card col-md-3 mb-3">
-                                        <div class="card-body">
-                                            <h4 class="card-title">Scrabble sempiternel</h4>
-                                            <p class="card-text"><i class="fas fa-dice"></i> Scrabble<br />
-                                                <i class="fas fa-user-friends"></i> 2/4<br />
-                                                <i class="fas fa-calendar-day"></i> 01/11/2020<br />
-                                                <i class="fas fa-map-marker-alt"></i> Lille (59)</p>
-                                            <a class="btn">+ d'informations</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="row justify-content-around">
-                                    <div class="card col-md-3 mb-3">
-                                        <div class="card-body">
-                                            <h4 class="card-title">D&D détente</h4>
-                                            <p class="card-text"><i class="fas fa-dice"></i> Donjons & Dragons<br />
-                                                <i class="fas fa-user-friends"></i> 0/3<br />
-                                                <i class="fas fa-calendar-day"></i> 11/11/2020<br />
-                                                <i class="fas fa-map-marker-alt"></i> Paris (75)</p>
-                                            <a class="btn">+ d'informations</a>
-                                        </div>
-                                    </div>
-                                    <div class="card col-md-3 mb-3">
-                                        <div class="card-body">
-                                            <h4 class="card-title">Monopoly meurtrier</h4>
-                                            <p class="card-text"><i class="fas fa-dice"></i> Monopoly<br />
-                                                <i class="fas fa-user-friends"></i> 1/4<br />
-                                                <i class="fas fa-calendar-day"></i> 03/11/2020<br />
-                                                <i class="fas fa-map-marker-alt"></i> Nantes (44)</p>
-                                            <a class="btn">+ d'informations</a>
-                                        </div>
-                                    </div>
-                                    <div class="card col-md-3 mb-3">
-                                        <div class="card-body">
-                                            <h4 class="card-title">Scrabble sempiternel</h4>
-                                            <p class="card-text"><i class="fas fa-dice"></i> Scrabble<br />
-                                                <i class="fas fa-user-friends"></i> 2/4<br />
-                                                <i class="fas fa-calendar-day"></i> 01/11/2020<br />
-                                                <i class="fas fa-map-marker-alt"></i> Lille (59)</p>
-                                            <a class="btn">+ d'informations</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="row justify-content-around">
-                                    <div class="card col-md-3 mb-3">
-                                        <div class="card-body">
-                                            <h4 class="card-title">D&D détente</h4>
-                                            <p class="card-text"><i class="fas fa-dice"></i> Donjons & Dragons<br />
-                                                <i class="fas fa-user-friends"></i> 0/3<br />
-                                                <i class="fas fa-calendar-day"></i> 11/11/2020<br />
-                                                <i class="fas fa-map-marker-alt"></i> Paris (75)</p>
-                                            <a class="btn">+ d'informations</a>
-                                        </div>
-                                    </div>
-                                    <div class="card col-md-3 mb-3">
-                                        <div class="card-body">
-                                            <h4 class="card-title">Monopoly meurtrier</h4>
-                                            <p class="card-text"><i class="fas fa-dice"></i> Monopoly<br />
-                                                <i class="fas fa-user-friends"></i> 1/4<br />
-                                                <i class="fas fa-calendar-day"></i> 03/11/2020<br />
-                                                <i class="fas fa-map-marker-alt"></i> Nantes (44)</p>
-                                            <a class="btn">+ d'informations</a>
-                                        </div>
-                                    </div>
-                                    <div class="card col-md-3 mb-3">
-                                        <div class="card-body">
-                                            <h4 class="card-title">Scrabble sempiternel</h4>
-                                            <p class="card-text"><i class="fas fa-dice"></i> Scrabble<br />
-                                                <i class="fas fa-user-friends"></i> 2/4<br />
-                                                <i class="fas fa-calendar-day"></i> 01/11/2020<br />
-                                                <i class="fas fa-map-marker-alt"></i> Lille (59)</p>
+                                            <h4 class="card-title">{{ event.title }}</h4>
+                                            <p class="card-text"><i class="fas fa-dice"></i> {{ event.game.name }}<br />
+                                                <i class="fas fa-user-friends"></i> {{ event.numberPlayer }}<br />
+                                                <i class="fas fa-calendar-day"></i> {{ event.date|date('d/m/Y') }}<br />
+                                                <i class="fas fa-map-marker-alt"></i> {{ event.location }}</p>
                                             <a class="btn">+ d'informations</a>
                                         </div>
                                     </div>
@@ -273,9 +252,10 @@
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
-        </section>
+        </section>#}
     </main>
 {% endblock %}
 

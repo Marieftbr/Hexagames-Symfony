@@ -97,8 +97,13 @@ label {
     margin-bottom: 3em;
 }
 
+.carousel-item {
+    overflow: hidden;
+}
+
 .card {
     background-color: rgba(229, 247, 213, 0.5);
+    min-width: 25%;
 }
 
 .card-title {
