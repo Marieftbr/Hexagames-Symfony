@@ -1,212 +1,216 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>{% block title %}HEXAGAMES{% endblock %}</title>
-        <link rel="stylesheet" type="text/css" href=" {{ asset('css/bootstrap.min.css') }} ">
-        <link rel="stylesheet" type="text/css" href=" {{ asset('css/base.css') }} ">
-        <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" type="text/css"
-              href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
-        <link rel="stylesheet" type="text/css"
-              href="https://fonts.googleapis.com/css2?family=Raleway:wght@800;900&display=swap">
-        {% block stylesheets %}
-        {% endblock %}
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}HEXAGAMES{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href=" {{ asset('css/bootstrap.min.css') }} ">
+    <link rel="stylesheet" type="text/css" href=" {{ asset('css/base.css') }} ">
+    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css2?family=Raleway:wght@800;900&display=swap">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/dashboard.css') }}" >
+    {% block stylesheets %}
+    {% endblock %}
+</head>
+<body>
 
-        <header>
+<header>
 
-            <!-- DEBUT NAV -->
+    <!-- DEBUT NAV -->
 
-            <nav class="row w-100 mx-0 d-none d-md-flex d-lg-flex d-xl-flex">
-                <button id="openNav" class="w3-button w3-xlarge" onclick="w3_toggle()">&#9776;</button>
-                <h1><a href="/" alt="Lien vers l'accueil du site">HEXAGAMES</a></h1>
-                <ul class="alignement ml-auto">
-                    <li>
-                        <div class="dropdown">
-                            <a class="dropdown-toggle profil" href="#" role="button" id="dropdownMenuLink"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-user saute"></i>
-                            </a>
-                            <div class="dropdown-menu">
-                                {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
-                                    <form class="px-4 py-3" method="post" action="{{ path("app_login") }}">
-                                        <div class="form-group">
-                                            <label for="exampleDropdownFormEmail1">Adresse email</label>
-                                            <input name="email" type="email" class="form-control"
-                                                   id="exampleDropdownFormEmail1"
-                                                   placeholder="email@exemple.com">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleDropdownFormPassword1">Mot de passe</label>
-                                            <input name="password" type="password" class="form-control"
-                                                   id="exampleDropdownFormPassword1"
-                                                   placeholder="Mot de passe">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                                                <label class="form-check-label" for="dropdownCheck">
-                                                    Se souvenir de moi
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <input type="hidden" name="_csrf_token"
-                                               value="{{ csrf_token('authenticate') }}">
-                                        <button type="submit" class="btn btn-light">Se connecter</button>
-                                    </form>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ path('inscription') }}">Nouveau ? Deviens un
-                                        Hexapote !</a>
-                                    <a class="dropdown-item" href="#">Mot de passe oublié ?</a>
-                                {% else %}
-                                    <p>Email: {{ app.user.email }}</p>
-                                {% endif %}
+    <nav class="row w-100 mx-0 d-none d-md-flex d-lg-flex d-xl-flex">
+        <button id="openNav" class="w3-button w3-xlarge" onclick="w3_toggle()">&#9776;</button>
+        <h1><a href="/" alt="Lien vers l'accueil du site">HEXAGAMES</a></h1>
+        <ul class="alignement ml-auto">
+            <li>
+                <div class="dropdown">
+                    <a class="dropdown-toggle profil" href="#" role="button" id="dropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user saute"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <form class="px-4 py-3" method="post" action="{{ path("app_login") }}">
+                                <div class="form-group">
+                                    <label for="exampleDropdownFormEmail1">Adresse email</label>
+                                    <input name="email" type="email" class="form-control"
+                                           id="exampleDropdownFormEmail1"
+                                           placeholder="email@exemple.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleDropdownFormPassword1">Mot de passe</label>
+                                    <input name="password" type="password" class="form-control"
+                                           id="exampleDropdownFormPassword1"
+                                           placeholder="Mot de passe">
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                        <label class="form-check-label" for="dropdownCheck">
+                                            Se souvenir de moi
+                                        </label>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="_csrf_token"
+                                       value="{{ csrf_token('authenticate') }}">
+                                <button type="submit" class="btn btn-light">Se connecter</button>
+                            </form>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ path('inscription') }}">Nouveau ? Deviens un
+                                Hexapote !</a>
+                            <a class="dropdown-item" href="#">Mot de passe oublié ?</a>
+                        {% else %}
+                            <p>Email: {{ app.user.email }}</p>
+                        {% endif %}
 
 
-                            </div>
-                        </div>
-                    </li>
-                    <li><a href="{{ path('ludotheque') }}" alt="Lien vers la ludothèque"><i
-                                    class="fas fa-dice-d20 saute"></i></a></li>
-                    <li><a href="{{ path('sessions') }}" alt="Créer un événement avec des Hexapotes"><i
-                                    class="fas fa-calendar-alt saute"></i></a></li>
-                    <li><a href="#" alt="Lien vers sa boîte de réception"><i class="fas fa-comment-dots saute"></i></a>
-                    </li>
-                    <li><a href="{{ path('contact_us') }}" alt="Nous contacter"><i
-                                    class="fas fa-envelope saute"></i></a></li>
-                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <li>
-                            <a href="{{ path('app_logout') }}"><i class="fas fa-power-off"></i></a>
-                        </li>
-                    {% endif %}
-                </ul>
-            </nav>
-
-            <nav class="w-100 d-block d-sm-block d-md-none d-xl-none">
-                <nav class="navbar navbar-light bg-light">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarResponsive" aria-controls="navbarResponsive"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </nav>
-                <div class="pos-f-t">
-                    <div class="collapse" id="navbarResponsive">
-                        <div class="bg-light p-2">
-                            <ul class="nav-responsive px-3">
-                                <li><a href="{{ path('default') }}" alt="Lien vers l'accueil du site"><i
-                                                class="fas fa-home"></i> Accueil</a></li>
-                                <li><a href="{{ path('ludotheque') }}" alt="Lien vers la ludothèque"><i
-                                                class="fas fa-dice-d20"></i> Ludothèque</a></li>
-                                <li><a href="{{ path('sessions') }}" alt="Créer un événement avec des Hexapotes"><i
-                                                class="fas fa-calendar-alt"></i> Sessions de jeu</a></li>
-                                <li><a href="#" alt="Lien vers sa boîte de réception"><i
-                                                class="fas fa-comment-dots"></i>
-                                        Messagerie</a></li>
-                                <li><a href="#" alt="Nous contacter"><i class="fas fa-envelope"></i> Nous contacter</a>
-                                </li>
-                                <li><a href="{{ path('user') }}" alt="Lien vers son profil"><i class="fas fa-user"></i>
-                                        Mon profil</a></li>
-                                {% if is_granted('IS_FULLY_AUTHENTICATED') %}
-                                    <li>
-                                        <a href="{{ path('app_logout') }}" alt="Se déconnecter"><i
-                                                    class="fas fa-power-off"></i> Se déconnecter</a>
-                                    </li>
-                                {% endif %}
-                            </ul>
-                        </div>
                     </div>
                 </div>
-            </nav>
+            </li>
+            <li><a href="{{ path('ludotheque') }}" alt="Lien vers la ludothèque"><i
+                            class="fas fa-dice-d20 saute"></i></a></li>
+            <li><a href="{{ path('sessions') }}" alt="Créer un événement avec des Hexapotes"><i
+                            class="fas fa-calendar-alt saute"></i></a></li>
+            <li><a href="#" alt="Lien vers sa boîte de réception"><i class="fas fa-comment-dots saute"></i></a>
+            </li>
+            <li><a href="{{ path('contact_us') }}" alt="Nous contacter"><i
+                            class="fas fa-envelope saute"></i></a></li>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li>
+                    <a href="{{ path('app_logout') }}"><i class="fas fa-power-off"></i></a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
 
-            <!-- FIN NAV -->
-            <!-- DEBUT SIDEBAR -->
-
-            <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-                <div class="infos">
-
-                    <img class="pp" src="/img/jim.jpg" alt="Photo de Jim"/>
-
-                    <h4>*Pseudo*</h4>
-                    <h4>*Ville*</h4>
-                    <h4>*Age*</h4>
-
-                </div>
-
-                <br/>
-
-                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
-                     aria-orientation="vertical">
-
-                    <a class="nav-link active" id="v-pills-profil-tab" data-toggle="pill" href="#v-pills-profil"
-                       role="tab"
-                       aria-controls="v-pills-ludo" aria-selected="true">Mon Profil</a>
-
-                    <a class="nav-link" id="v-pills-ludo-tab" data-toggle="pill" href="#v-pills-ludo"
-                       role="tab"
-                       aria-controls="v-pills-ludo" aria-selected="true">Mon Hexaludo</a>
-
-
-                    <a class="nav-link" id="v-pills-membres-tab" data-toggle="pill" href="#v-pills-membres"
-                       role="tab"
-                       aria-controls="v-pills-membres" aria-selected="false">Mes Hexapotes</a>
-
-
-                    <a class="nav-link" id="v-pills-sessions-tab" data-toggle="pill" href="#v-pills-sessions"
-                       role="tab"
-                       aria-controls="v-pills-sessions" aria-selected="false">Sessions de jeu</a>
-
-
-                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages"
-                       role="tab"
-                       aria-controls="v-pills-messages" aria-selected="false">(Ma Messagerie)</a>
-
-
-                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
-                       role="tab"
-                       aria-controls="v-pills-settings" aria-selected="false">Paramètres</a>
+    <nav class="w-100 d-block d-sm-block d-md-none d-xl-none">
+        <nav class="navbar navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarResponsive">
+                <div class="bg-light p-2">
+                    <ul class="nav-responsive px-3">
+                        <li><a href="{{ path('default') }}" alt="Lien vers l'accueil du site"><i
+                                        class="fas fa-home"></i> Accueil</a></li>
+                        <li><a href="{{ path('ludotheque') }}" alt="Lien vers la ludothèque"><i
+                                        class="fas fa-dice-d20"></i> Ludothèque</a></li>
+                        <li><a href="{{ path('sessions') }}" alt="Créer un événement avec des Hexapotes"><i
+                                        class="fas fa-calendar-alt"></i> Sessions de jeu</a></li>
+                        <li><a href="#" alt="Lien vers sa boîte de réception"><i
+                                        class="fas fa-comment-dots"></i>
+                                Messagerie</a></li>
+                        <li><a href="#" alt="Nous contacter"><i class="fas fa-envelope"></i> Nous contacter</a>
+                        </li>
+                        <li><a href="{{ path('user') }}" alt="Lien vers son profil"><i class="fas fa-user"></i>
+                                Mon profil</a></li>
+                        {% if is_granted('IS_FULLY_AUTHENTICATED') %}
+                            <li>
+                                <a href="{{ path('app_logout') }}" alt="Se déconnecter"><i
+                                            class="fas fa-power-off"></i> Se déconnecter</a>
+                            </li>
+                        {% endif %}
+                    </ul>
                 </div>
             </div>
+        </div>
+    </nav>
 
-            <script>
-                function w3_toggle() {
-                    if (document.getElementById("mySidebar").style.display === "block") {
-                        w3_close()
-                    } else {
-                        w3_open()
-                    }
-                }
+    <!-- FIN NAV -->
+    <!-- DEBUT SIDEBAR -->
 
-                function w3_open() {
-                    document.getElementById("main").style.marginLeft = "25%";
-                    document.getElementById("mySidebar").style.width = "25%";
-                    document.getElementById("mySidebar").style.display = "block";
-                }
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+        <div class="infos">
 
-                function w3_close() {
-                    document.getElementById("main").style.marginLeft = "0%";
-                    document.getElementById("mySidebar").style.display = "none";
-                }
-            </script>
+            {% if user.photo %}
+                <img class="pp" src="{{ user.photo }}" alt="Photo"/>
+            {% else %}
+                <img class="pp" src="{{ asset('img/icon.png') }}" alt="Photo"/>
+            {% endif %}
+            <h4>{{ user.pseudo }}</h4>
+            <h4>{{ user.city }}</h4>
+            <h4>Age</h4>
 
-            <!-- FIN SIDEBAR -->
-        </header>
-
-        <div id="main">
-            {% block body %}
-
-            {% endblock %}
         </div>
 
+        <br/>
 
-        <script src="{{ asset('js/jquery-3.5.1.slim.min.js') }}"></script>
-        <script src="{{ asset('js/popper.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <script src="https://kit.fontawesome.com/7f37cf6bc8.js" crossorigin="anonymous"></script>
-        {% block javascripts %}
-        {% endblock %}
-    </body>
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+             aria-orientation="vertical">
+
+            <a class="nav-link active" id="v-pills-profil-tab" data-toggle="pill" href="{{ path('user_profile_id', {'id': user.id}) }}"
+               role="tab"
+               aria-controls="v-pills-ludo" aria-selected="true">Mon Profil</a>
+
+            <a class="nav-link" id="v-pills-ludo-tab" data-toggle="pill" href="#v-pills-ludo"
+               role="tab"
+               aria-controls="v-pills-ludo" aria-selected="true">Mon Hexaludo</a>
+
+
+            <a class="nav-link" id="v-pills-membres-tab" data-toggle="pill" href="#v-pills-membres"
+               role="tab"
+               aria-controls="v-pills-membres" aria-selected="false">Mes Hexapotes</a>
+
+
+            <a class="nav-link" id="v-pills-sessions-tab" data-toggle="pill" href="#v-pills-sessions"
+               role="tab"
+               aria-controls="v-pills-sessions" aria-selected="false">Sessions de jeu</a>
+
+
+            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages"
+               role="tab"
+               aria-controls="v-pills-messages" aria-selected="false">(Ma Messagerie)</a>
+
+
+            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
+               role="tab"
+               aria-controls="v-pills-settings" aria-selected="false">Paramètres</a>
+        </div>
+    </div>
+
+    <script>
+        function w3_toggle() {
+            if (document.getElementById("mySidebar").style.display === "block") {
+                w3_close()
+            } else {
+                w3_open()
+            }
+        }
+
+        function w3_open() {
+            document.getElementById("main").style.marginLeft = "25%";
+            document.getElementById("mySidebar").style.width = "25%";
+            document.getElementById("mySidebar").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("main").style.marginLeft = "0%";
+            document.getElementById("mySidebar").style.display = "none";
+        }
+    </script>
+
+    <!-- FIN SIDEBAR -->
+</header>
+
+<div id="main">
+    {% block body %}
+
+    {% endblock %}
+</div>
+
+
+<script src="{{ asset('js/jquery-3.5.1.slim.min.js') }}"></script>
+<script src="{{ asset('js/popper.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="https://kit.fontawesome.com/7f37cf6bc8.js" crossorigin="anonymous"></script>
+{% block javascripts %}
+{% endblock %}
+</body>
 </html>
