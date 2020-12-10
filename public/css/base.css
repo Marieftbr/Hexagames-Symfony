@@ -133,11 +133,21 @@ header h4 {
 #mySidebar {
     text-align: center;
     padding: 10px;
-
+    background-color: #a5edd4;
 }
 
 .infos {
-    border: 1px solid pink;
+    padding: 5px;
+}
+
+.mydashboard {
+    border-top: 5px solid white;
+    padding: 5px;
+}
+
+.boite-sidebar {
+    border: 5px solid white;
+    background-color: rgb(208, 244, 235);
 }
 
 .pagebar {
