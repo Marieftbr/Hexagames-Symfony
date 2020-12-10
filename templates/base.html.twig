@@ -129,25 +129,25 @@
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
         <div class="infos">
 
-            {% if user.photo %}
-                <img class="pp" src="{{ user.photo }}" alt="Photo"/>
-            {% else %}
-                <img class="pp" src="{{ asset('img/icon.png') }}" alt="Photo"/>
-            {% endif %}
-            <h4>{{ user.pseudo }}</h4>
-            <h4>{{ user.city }}</h4>
-            <h4>Age</h4>
+{#            {% if user.photo %}#}
+{#                <img class="pp" src="{{ user.photo }}" alt="Photo"/>#}
+{#            {% else %}#}
+{#                <img class="pp" src="{{ asset('img/icon.png') }}" alt="Photo"/>#}
+{#            {% endif %}#}
+{#            <h4>{{ user.pseudo }}</h4>#}
+{#            <h4>{{ user.city }}</h4>#}
+{#            <h4>Age</h4>#}
 
         </div>
 
         <br/>
 
-        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
-             aria-orientation="vertical">
+{#        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"#}
+{#             aria-orientation="vertical">#}
 
-            <a class="nav-link active" id="v-pills-profil-tab" data-toggle="pill" href="{{ path('user_profile_id', {'id': user.id}) }}"
-               role="tab"
-               aria-controls="v-pills-ludo" aria-selected="true">Mon Profil</a>
+{#            <a class="nav-link active" id="v-pills-profil-tab" data-toggle="pill" href="{{ path('user_profile_id', {'id': user.id}) }}"#}
+{#               role="tab"#}
+{#               aria-controls="v-pills-ludo" aria-selected="true">Mon Profil</a>#}
 
             <a class="nav-link" id="v-pills-ludo-tab" data-toggle="pill" href="#v-pills-ludo"
                role="tab"
