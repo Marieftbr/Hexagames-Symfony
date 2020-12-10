@@ -2,6 +2,8 @@
 
 namespace App\Form;
 
+use App\Entity\Game;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -16,9 +18,13 @@ class EventType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class)
+            ->add('title', TextType::class)
             ->add('date', DateType::class)
-            ->add('game', ChoiceType::class)
+            ->add('game', EntityType::class, [
+                'class' => Game::class,
+                'choice_label' => 'name',
+                'placeholder' => 'Sélectionnez un jeu'
+            ])
             ->add('numberPlayer', NumberType::class)
             ->add('location', ChoiceType::class)
             ->add('description', TextareaType::class)
