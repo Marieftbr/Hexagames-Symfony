@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class LoginController extends AbstractController
 {
     /**
-     * @Route("/connexion")
+     * @Route("/connexion", name="connexion")
      */
     public function show(): Response
     {

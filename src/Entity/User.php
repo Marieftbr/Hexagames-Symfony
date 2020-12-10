@@ -47,7 +47,6 @@ class User implements UserInterface
     private $lastname;
 
 
-
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -84,7 +83,6 @@ class User implements UserInterface
     private $photo;
 
 
-
     public function __construct()
     {
         $this->my_games = new ArrayCollection();
@@ -117,7 +115,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string)$this->email;
     }
 
     /**
@@ -144,7 +142,7 @@ class User implements UserInterface
      */
     public function getPassword(): string
     {
-        return (string) $this->password;
+        return (string)$this->password;
     }
 
     public function setPassword(string $password): self
@@ -196,7 +194,6 @@ class User implements UserInterface
     }
 
 
-
     public function getCity(): ?string
     {
         return $this->city;
@@ -215,6 +212,15 @@ class User implements UserInterface
     public function getMyGames(): Collection
     {
         return $this->my_games;
+    }
+
+    /**
+     * @return Collection|Game[]
+     */
+    public function setMyGames($games): self
+    {
+        $this->my_games = $games;
+        return $this;
     }
 
     public function addMyGame(Game $myGame): self
@@ -239,6 +245,15 @@ class User implements UserInterface
     public function getMyHexapotes(): Collection
     {
         return $this->my_hexapotes;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function setMyHexapotes($hexapotes): self
+    {
+        $this->my_hexapotes = $hexapotes;
+        return $this;
     }
 
     public function addMyHexapote(self $myHexapote): self
@@ -322,9 +337,6 @@ class User implements UserInterface
 
         return $this;
     }
-
-
-
 
 
 }
