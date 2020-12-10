@@ -247,6 +247,15 @@ class User implements UserInterface
         return $this->my_hexapotes;
     }
 
+    /**
+     * @return Collection|User[]
+     */
+    public function setMyHexapotes($hexapotes): self
+    {
+        $this->my_hexapotes = $hexapotes;
+        return $this;
+    }
+
     public function addMyHexapote(self $myHexapote): self
     {
         if (!$this->my_hexapotes->contains($myHexapote)) {

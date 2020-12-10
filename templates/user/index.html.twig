@@ -29,14 +29,27 @@
     </section>
 
     <section>
-        <h2>Mes hexapotes</h2>
-        <div class="profiles">
-            <i class="carousel-icon-left carousel-icon fa fa-chevron-left"></i>
-            <a class="profile" href="#">
-                {% for hexapote in user.myHexapotes %}
-                    <img src="{{ hexapote }}" alt="" class="rounded-circle"/>
-                {% endfor %}
+        <h2>
+            <span>Mes hexapotes</span>
+            <a href="{{ path('user_select_hexapotes') }}">
+                <i class="fa fas fa-plus"></i>
             </a>
+        </h2>
+        <div class="my-hexapotes profiles">
+            <i class="carousel-icon-left carousel-icon fa fa-chevron-left"></i>
+
+                {% for hexapote in user.myHexapotes %}
+            <a class="hexapote profile" href="#">
+                    {% if hexapote.photo %}
+                    <img src="{{ hexapote.photo }}" alt="" class="rounded-circle"/>
+                        <span>{{ hexapote.pseudo }}</span>
+                    {% else %}
+                        <img src="{{ asset('img/icon.png') }}" alt="" class="rounded-circle"/>
+                        <span>{{ hexapote.pseudo }}</span>
+                    {% endif %}
+            </a>
+                {% endfor %}
+
             <i
                     class="carousel-icon-right carousel-icon fa fa-chevron-right"
             ></i>
