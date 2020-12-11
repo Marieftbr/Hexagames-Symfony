@@ -7,17 +7,17 @@
 
 {% block body %}
 <div class="container pb-3">
-    <h1>Nos jeux</h1>
+    <h2>Nos jeux</h2>
     {% if is_granted('ROLE_ADMIN') %}
         <a href="{{ path('new_game') }}" class="btn btn-primary">
             Ajouter un jeu</a>
     {% endif %}
     <section>
-        <button class="form-open">Filtres</button>
-        <div id="form-toggle">
+        <button class="form-open bouton boutonPote">Filtres</button>
+        <div id="form-toggle" class="formulaire">
             {{ form_start(ludo_form) }}
             {{ form_widget(ludo_form) }}
-            <input type="submit" value="Valider">
+            <input type="submit" class="btn btn-lg btn-block mb-5" value="Cherchons ça !">
             {{ form_end(ludo_form) }}
         </div>
 
@@ -42,7 +42,7 @@
                                     {% endif %}
 
                                 </p>
-                                <a class="btn btn-primary" href="{{ path('game_profile_id', {'id': game.id}) }}">Voir la
+                                <a class="btn" href="{{ path('game_profile_id', {'id': game.id}) }}">Voir la
                                     fiche du jeu</a>
                             </div>
                         </div>

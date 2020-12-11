@@ -21,11 +21,16 @@ header {
 header h1 {
     color: #ffffff;
     margin-bottom: 0 !important;
-    padding-left: 1em;
+    padding-left: 0.5em;
     font-family: 'Raleway', sans-serif;
     font-weight: lighter;
     letter-spacing: 0.1em;
     text-shadow: 2px 2px 0px #BE49FD;
+}
+
+.fa-dice {
+    color: #ffffff;
+    text-shadow: 2px 2px 0px #80af6a;
 }
 
 a {
