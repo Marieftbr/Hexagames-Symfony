@@ -67,7 +67,7 @@ nav li {
     list-style-type: none;
     display: inline-block;
     font-size: 2em;
-    color: white;
+    color: #ffffff;
     position: static;
 }
 
@@ -113,7 +113,7 @@ nav li {
 }
 
 .dropdown-menu {
-    background-color: #efdfff;
+    background-color: #e4d6ff;
     color: #a98fc7;
     text-shadow: 1px 1px 0px #ffffff;
     font-weight: bold;
@@ -138,7 +138,7 @@ header h4 {
 #mySidebar {
     text-align: center;
     padding: 10px;
-    background-color: #a5edd4;
+    background-color: #e4d6ff;
     top: 60px;
 }
 
