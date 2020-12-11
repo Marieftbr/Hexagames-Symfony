@@ -7,7 +7,7 @@
 
 {% block body %}
 <div class="container pb-3">
-    <h2>Nos jeux</h2>
+    <h2>Ludothèque</h2>
     {% if is_granted('ROLE_ADMIN') %}
         <a href="{{ path('new_game') }}" class="btn btn-primary">
             Ajouter un jeu</a>

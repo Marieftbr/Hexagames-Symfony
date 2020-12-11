@@ -2,9 +2,16 @@
 
 {% block title %}Hello ContactUsController!{% endblock %}
 
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/contact.css') }}">
+{% endblock %}
+
 {% block body %}
+    <h2>Contactez-nous !</h2>
+    <div class="formulaire">
     {{ form_start(contact_us_form) }}
     {{ form_widget(contact_us_form) }}
     <input type="submit" value="Envoyer">
     {{ form_end(contact_us_form) }}
+    </div>
 {% endblock %}

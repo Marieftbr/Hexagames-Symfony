@@ -110,7 +110,19 @@ label {
     font-family: 'Raleway', sans-serif;
     color: #7343bf;
     text-shadow: 1px 1px 0px #ffffff;
-    font-size: 22px;
+}
+
+.card-body > h4 {
+    font-family: 'Raleway', sans-serif;
+    color: #7343bf;
+    text-shadow: 1px 1px 0px #ffffff;
+    font-size: 22px !important;
+}
+
+.card-text > .fa-dice {
+    color: #4a4a4A !important;
+    text-shadow: 1px 1px 0px #ffffff !important;
+    font-size: 16px !important;
 }
 
 section h3 {
