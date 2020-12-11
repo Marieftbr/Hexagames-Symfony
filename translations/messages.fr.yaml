@@ -49,3 +49,11 @@ settings:
   city: {label: Ville}
   email: {label: Mail}
   password: {label: Mot de passe}
+
+event:
+  title: {label: Titre}
+  date: {label: Date}
+  game: {label: Jeu}
+  number_player: {label: Nombre de joueur}
+  location: {label: Lieu}
+  description: {label: Description}
