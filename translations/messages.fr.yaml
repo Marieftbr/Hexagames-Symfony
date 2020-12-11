@@ -40,3 +40,12 @@ contactUs:
   email: {label: Email}
   subject: {label: Sujet}
   message: {label: Message}
+
+settings:
+  pseudo: {label: Pseudo}
+  firstname: {label: Prénom}
+  lastname: {label: Nom}
+  age: {label: Âge}
+  city: {label: Ville}
+  email: {label: Mail}
+  password: {label: Mot de passe}

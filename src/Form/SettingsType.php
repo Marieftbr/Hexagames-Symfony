@@ -23,7 +23,7 @@ class SettingsType extends AbstractType
                 'years' => range(1900,  date("Y"))
             ])
             ->add('city', TextType::class)
-            ->add('mail', EmailType::class)
+            ->add('email', EmailType::class)
             ->add('password', PasswordType::class, [
                 "required" => false
             ])
@@ -33,7 +33,7 @@ class SettingsType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'label_format'=>'settings.%name%.label',
         ]);
     }
 }

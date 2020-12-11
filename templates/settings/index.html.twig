@@ -1,8 +1,11 @@
 {% extends 'base.html.twig' %}
-
+{% block  stylesheets %}
+    <link rel="stylesheet" type="text/css" href=" {{ asset('css/settings.css') }} ">
+{% endblock %}
 {% block title %}Hello SettingsController!{% endblock %}
 
 {% block body %}
+    <h1>Mes paramètres</h1>
 
 {{ form_start(form_settings) }}
     {{ form_widget(form_settings) }}
