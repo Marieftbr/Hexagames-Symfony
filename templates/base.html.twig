@@ -124,27 +124,22 @@
             </div>
         </div>
     </nav>
-
     <!-- FIN NAV -->
+
     <!-- DEBUT SIDEBAR -->
     {% if app.user %}
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-
         <div class="infos">
-
             {% if app.user.photo %}
                 <img class="pp" src="{{ app.user.photo }}" alt="Photo"/>
             {% else %}
                 <img class="pp" src="{{ asset('img/icon.png') }}" alt="Photo"/>
             {% endif %}
             <h4>{{ app.user.pseudo }}</h4>
-            <h4>{{ app.user.city }}</h4>
-            <h4>Age</h4>
-
+            <h5>{{ app.user.city }}</h5>
+            <h5>Age</h5>
         </div>
-
         <br/>
-
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
              aria-orientation="vertical">
 

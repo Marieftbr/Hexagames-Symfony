@@ -123,16 +123,32 @@ nav li {
     color: #74b53a;
 }
 
-header h4 {
+.infos {
+    font-family: 'Raleway', sans-serif !important;
+    border: 2px solid #ffffff;
+}
+
+h4 {
     text-align: center;
+    font-family: 'Raleway', sans-serif !important;
+    font-size: 2em !important;
+    letter-spacing: 2px;
+    color: #8562cc;
+    text-shadow: 2px 2px 0px #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+h5 {
+    font-family: 'Raleway', sans-serif !important;
+    color: #4a4a4A;
+    text-shadow: 2px 2px 0px #ffffff;
 }
 
 .pp {
     display: block;
     margin-left: auto;
     margin-right: auto;
-
-
 }
 
 #mySidebar {
@@ -144,6 +160,20 @@ header h4 {
 
 .infos {
     padding: 5px;
+}
+
+.nav-link {
+    font-family: 'Raleway', sans-serif;
+    text-shadow: 1px 1px 0px #ffffff;
+    background-color: #dbc9ff;
+    margin-bottom: 1em;
+}
+
+.nav-link > .active {
+    background-color: #dbc9ff;
+    color: #ffffff;
+    margin-bottom: 0 !important;
+    border: 1px solid #9379c7;
 }
 
 .mydashboard {
